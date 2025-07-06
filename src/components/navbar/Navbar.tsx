@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-html-link-for-pages */
+// src/components/navbar/Navbar.tsx
 "use client";
 import { useState, useEffect } from "react";
 import styles from "./navbar.module.css";
@@ -18,14 +18,37 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const menu = document.getElementById('mobile-menu');
+      if (isOpen && menu && !menu.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isOpen]);
+
   const navItems = ["Home", "Projects", "Works", "Equipment", "About"];
+
+  const handleNavClick = () => {
+    setIsOpen(false);
+  };
+
+  const handleQuoteClick = () => {
+    setIsOpen(false);
+    setIsQuoteModalOpen(true);
+  };
 
   return (
     <>
       <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`}>
         <div className={styles.navbarContainer}>
           <div className={styles.navbarLogo}>
-            <a href="/">
+            <Link href="/" onClick={handleNavClick}>
               <div className={styles.logoWrapper}>
                 <div className={styles.logoText}>
                   <span className={styles.companyName}>
@@ -36,11 +59,14 @@ const Navbar = () => {
                   </span>
                 </div>
               </div>
-            </a>
+            </Link>
           </div>
 
           <div className={styles.menuWrapper}>
-            <ul className={`${styles.navLinks} ${isOpen ? styles.active : ""}`}>
+            <ul
+              id="mobile-menu"
+              className={`${styles.navLinks} ${isOpen ? styles.active : ""}`}
+            >
               {navItems.map((item) => (
                 <li
                   key={item}
@@ -55,6 +81,7 @@ const Navbar = () => {
                       item.toLowerCase() === "home" ? "" : item.toLowerCase()
                     }`}
                     className={styles.navLink}
+                    onClick={handleNavClick}
                   >
                     <span className={styles.linkText}>{item}</span>
                     <span className={styles.linkHighlight}></span>
@@ -64,7 +91,7 @@ const Navbar = () => {
               <li className={styles.navItem}>
                 <button
                   className={styles.contactBtn}
-                  onClick={() => setIsQuoteModalOpen(true)}
+                  onClick={handleQuoteClick}
                 >
                   <span>Get Quote</span>
                   <div className={styles.btnIcon}>
@@ -77,11 +104,10 @@ const Navbar = () => {
             </ul>
 
             <button
-              className={`${styles.navbarToggle} ${
-                isOpen ? styles.active : ""
-              }`}
+              className={`${styles.navbarToggle} ${isOpen ? styles.active : ""}`}
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
+              aria-expanded={isOpen}
             >
               <div className={styles.hamburger}>
                 <span></span>

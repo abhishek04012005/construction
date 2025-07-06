@@ -1,3 +1,79 @@
+/* src/components/navbar/navbar.module.css */
+.navbarToggle.active .hamburger span:first-child {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.navbarToggle.active .hamburger span:nth-child(2) {
+  opacity: 0;
+}
+
+.navbarToggle.active .hamburger span:last-child {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Add these new styles */
+@media (max-width: 1024px) {
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+
+  .navLinks {
+    position: fixed;
+    top: 80px; /* Adjust based on your navbar height */
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    height: calc(100vh - 80px);
+    overflow-y: auto;
+  }
+
+  .navLinks.active {
+    transform: translateX(0);
+  }
+
+  .navItem {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .navLinks.active .navItem {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .navLinks.active .navItem:nth-child(1) { transition-delay: 0.1s; }
+  .navLinks.active .navItem:nth-child(2) { transition-delay: 0.2s; }
+  .navLinks.active .navItem:nth-child(3) { transition-delay: 0.3s; }
+  .navLinks.active .navItem:nth-child(4) { transition-delay: 0.4s; }
+  .navLinks.active .navItem:nth-child(5) { transition-delay: 0.5s; }
+  .navLinks.active .navItem:nth-child(6) { transition-delay: 0.6s; }
+
+  .navLink {
+    display: block;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.2rem;
+  }
+
+  .contactBtn {
+    margin-top: 1rem;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Keep your existing styles and just update/add these new ones */
+
+
 .navbar {
   background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(12px);
@@ -185,6 +261,9 @@
 }
 
 @media (max-width: 1024px) {
+  .navbar {
+    position: relative;
+  }
   .navbarToggle {
     display: block;
   }
