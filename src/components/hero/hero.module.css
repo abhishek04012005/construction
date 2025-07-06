@@ -1,0 +1,193 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background-image: url('https://content.presentermedia.com/files/clipart/00031000/31133/construction_site_background_800_wht.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  padding-top: 80px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.85) 0%,
+    rgba(0, 0, 0, 0.7) 50%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.content {
+  max-width: 800px;
+  color: white;
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 0.8s ease;
+}
+
+.highlight {
+  color: #f59e0b;
+  position: relative;
+  display: inline-block;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  color: rgba(255, 255, 255, 0.9);
+  animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+.ctaGroup {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+  animation: fadeInUp 0.8s ease 0.4s both;
+}
+
+.primaryBtn {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+}
+
+.primaryBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+}
+
+.arrow {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  transition: transform 0.3s ease;
+}
+
+.primaryBtn:hover .arrow {
+  transform: translateX(4px);
+}
+
+.secondaryBtn {
+  background: transparent;
+  color: white;
+  padding: 1rem 2rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.secondaryBtn:hover {
+  border-color: white;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.stats {
+  display: flex;
+  gap: 4rem;
+  margin-top: 2rem;
+  animation: fadeInUp 0.8s ease 0.6s both;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.statNumber {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #f59e0b;
+}
+
+.statLabel {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    text-align: center;
+    padding-top: 100px;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+  }
+
+  .ctaGroup {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .stats {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .content {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+}

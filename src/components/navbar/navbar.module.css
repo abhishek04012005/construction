@@ -1,0 +1,234 @@
+.navbar {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scrolled {
+  padding: 0.5rem 0;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.navbarContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.2rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.logoWrapper:hover {
+  transform: translateY(-2px);
+}
+
+.navbarLogo a {
+  text-decoration: none;
+}
+
+.navbarLogo img {
+  height: 45px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.logoText {
+  display: flex;
+  flex-direction: column;
+}
+
+.companyName {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1e293b;
+  letter-spacing: -1px;
+}
+
+.highlight {
+  color: #f59e0b;
+}
+
+.tagline {
+  font-size: 0.9rem;
+  color: #64748b;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.menuWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navItem {
+  position: relative;
+  perspective: 1000px;
+}
+
+.navLink {
+  text-decoration: none;
+  color: #334155;
+  font-weight: 600;
+  font-size: 1.05rem;
+  padding: 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+.linkText {
+  position: relative;
+  z-index: 1;
+}
+
+.linkHighlight {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #f59e0b;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.navLink:hover .linkHighlight {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.navLink:hover {
+  color: #f59e0b;
+}
+
+.contactBtn {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  padding: 0.8rem 1.8rem;
+  border-radius: 50px;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.25);
+}
+
+.btnIcon {
+  display: flex;
+  align-items: center;
+}
+
+.arrow {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  transition: transform 0.3s ease;
+}
+
+.contactBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.35);
+}
+
+.contactBtn:hover .arrow {
+  transform: translateX(4px);
+}
+
+.navbarToggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.hamburger {
+  width: 24px;
+  height: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #1e293b;
+  border-radius: 2px;
+  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (max-width: 1024px) {
+  .navbarToggle {
+    display: block;
+  }
+
+  .navLinks {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: white;
+    padding: 2rem;
+    flex-direction: column;
+    gap: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    animation: slideDown 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .navLinks.active {
+    display: flex;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-1rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .navItem {
+    width: 100%;
+    text-align: center;
+  }
+
+  .navLink {
+    padding: 1rem;
+  }
+
+  .contactBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}
