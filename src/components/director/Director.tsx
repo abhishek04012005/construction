@@ -20,7 +20,7 @@ interface DirectorItem {
 
 const directorData: DirectorItem[] = [
   {
-    title: "Ashok Kumar",
+    title: "Mr. Ashok Sah",
     role: "Managing Director",
     description:
       "With over 20 years of experience in construction management and development.",
@@ -31,7 +31,7 @@ const directorData: DirectorItem[] = [
     },
   },
   {
-    title: "Tarun Roy",
+    title: "Mr. Tarun Roy",
     role: "Technical Director",
     description:
       "Specializing in architectural design and sustainable construction practices.",
@@ -42,7 +42,7 @@ const directorData: DirectorItem[] = [
     },
   },
   {
-    title: "Tanishk Singh",
+    title: "Mr. Tanishk Singh",
     role: "Operations Director",
     description:
       "Expert in project management and construction operations optimization.",
@@ -59,7 +59,7 @@ const Director = () => {
     <section className={styles.directorSection}>
       <div className={styles.container}>
         <h2 className={styles.title}>
-          Our <span className={styles.highlight}>Directors</span>
+          Our <span className={styles.highlight}>Team</span>
         </h2>
         <div className={styles.grid}>
           {directorData.map((director, index) => (
