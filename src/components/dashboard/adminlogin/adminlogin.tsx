@@ -31,46 +31,52 @@ const AdminLogin = () => {
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (values: LoginFormValues) => {
-    try {
-      setLoading(true);
-      setError(null);
+  try {
+    setLoading(true);
+    setError(null);
 
-      // First, try to sign in with Supabase Auth
-      const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
-        email: values.email,
-        password: values.password,
-      });
+    // First, try to sign in with Supabase Auth
+    const { error: authError } = await supabase.auth.signInWithPassword({
+      email: values.email,
+      password: values.password,
+    });
 
-      if (authError) throw authError;
+    if (authError) throw authError;
 
-      // Then verify admin role
-      const { data: adminData, error: adminError } = await supabase
-        .from("admin_users")
-        .select("role")
-        .eq("email", values.email)
-        .single();
+    // Then verify admin role
+    const { data: adminData, error: adminError } = await supabase
+      .from("admin_users")
+      .select("role")
+      .eq("email", values.email)
+      .single();
 
-      if (adminError || adminData?.role !== "admin") {
-        throw new Error("Unauthorized access");
-      }
-
-      // Store password hash in admin_users table
-      const { error: updateError } = await supabase
-        .from("admin_users")
-        .update({ password_hash: values.password })
-        .eq("email", values.email);
-
-      if (updateError) throw updateError;
-
-      // If everything is successful, redirect to dashboard
-      router.push("/dashboard/contact");
-    } catch (error: any) {
-      setError(error.message || "Invalid credentials");
-      console.error("Login error:", error);
-    } finally {
-      setLoading(false);
+    if (adminError || adminData?.role !== "admin") {
+      throw new Error("Unauthorized access");
     }
-  };
+
+    // Store password hash in admin_users table
+    const { error: updateError } = await supabase
+      .from("admin_users")
+      .update({ password_hash: values.password })
+      .eq("email", values.email);
+
+    if (updateError) throw updateError;
+
+    // If everything is successful, redirect to dashboard
+    router.push("/dashboard/contact");
+  } catch (error) {
+    if (error instanceof Error) {
+      setError(error.message);
+      console.error("Login error:", error.message);
+    } else {
+      setError("Invalid credentials");
+      console.error("Login error:", error);
+    }
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   return (
  <div className={styles.loginContainer}>

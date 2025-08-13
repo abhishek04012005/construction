@@ -1,6 +1,6 @@
 "use client"
 
-import { createClient, SupabaseClient } from '@supabase/supabase-js'
+import { createClient } from '@supabase/supabase-js'
 
 const getSupabaseCredentials = (): { url: string; key: string } => {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL
