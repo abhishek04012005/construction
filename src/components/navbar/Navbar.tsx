@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import styles from "./navbar.module.css";
 import QuoteModal from "../popup/PopupModal";
 import Link from "next/link";
+import Logo from "../../assets/logo.svg"
+import Image from "next/image";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -50,14 +52,15 @@ const Navbar = () => {
           <div className={styles.navbarLogo}>
             <Link href="/" onClick={handleNavClick}>
               <div className={styles.logoWrapper}>
-                <div className={styles.logoText}>
+                {/* <div className={styles.logoText}>
                   <span className={styles.companyName}>
                     Sah<span className={styles.highlight}>Construction</span>
                   </span>
                   <span className={styles.tagline}>
                     Excellence in Construction
                   </span>
-                </div>
+                </div> */}
+                <Image className={styles.logoImage} src={Logo} alt="Logo" height={60} width={60} />
               </div>
             </Link>
           </div>

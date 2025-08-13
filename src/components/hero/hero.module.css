@@ -47,7 +47,7 @@
 }
 
 .highlight {
-  color: #f59e0b;
+  color: #d45500;
   position: relative;
   display: inline-block;
 }
@@ -68,7 +68,7 @@
 }
 
 .primaryBtn {
-  background: linear-gradient(135deg, #f59e0b, #d97706);
+  background: linear-gradient(135deg, #d45500, #d97706);
   color: white;
   padding: 1rem 2rem;
   border-radius: 50px;
@@ -132,7 +132,7 @@
 .statNumber {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #f59e0b;
+  color: #d45500;
 }
 
 .statLabel {

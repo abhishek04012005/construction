@@ -1,25 +1,26 @@
 
 import Link from 'next/link';
 import styles from './footer.module.css';
+import Image from 'next/image';
+import Logo from '../../assets/logo.svg';
 
 const Footer = () => {
-
-
 
   return (
     <footer className={styles.footer}>
       <div className={styles.footerContent}>
         <div className={styles.footerSection}>
-            <div className={styles.logoWrapper}>
-                <div className={styles.logoText}>
-                  <span className={styles.companyName}>
-                    Sah<span className={styles.highlight}>Construction</span>
-                  </span>
-            
-                </div>
-              </div>
+          <div className={styles.logoWrapper}>
+            {/* <div className={styles.logoText}>
+              <span className={styles.companyName}>
+                Sah<span className={styles.highlight}>Construction</span>
+              </span>
+
+            </div> */}
+            <Image className={styles.logoImage} src={Logo} alt="Logo" height={60} width={60} />
+          </div>
           <p className={styles.companyDesc}>
-            Leading the way in innovative construction and architectural solutions, 
+            Leading the way in innovative construction and architectural solutions,
             delivering excellence in every project.
           </p>
         </div>
@@ -32,6 +33,7 @@ const Footer = () => {
             <Link href="/works">Works</Link>
             <Link href="/about">About Us</Link>
             <Link href="/contact">Contact</Link>
+            <Link href="/admin/login">Admin Login</Link>
           </nav>
         </div>
 
@@ -42,10 +44,10 @@ const Footer = () => {
             <p>India</p>
             <p>Phone: +91-98826-26050</p>
             <p>Email: ashokkumarsah638@gmail.com</p>
-          </div>
+          </div>o
         </div>
 
-      
+
       </div>
 
       <div className={styles.footerBottom}>

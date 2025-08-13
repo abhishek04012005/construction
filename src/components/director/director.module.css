@@ -17,7 +17,7 @@
 }
 
 .highlight {
-  color: #f59e0b;
+  color: #d45500;
 }
 
 .grid {
@@ -71,7 +71,7 @@
 
 .role {
   display: block;
-  color: #f59e0b;
+  color: #d45500;
   font-size: 1rem;
   margin-bottom: 1rem;
   font-weight: 500;
@@ -100,7 +100,7 @@
 }
 
 .socialLink:hover {
-  background-color: #f59e0b;
+  background-color: #d45500;
   color: #ffffff;
 }
 

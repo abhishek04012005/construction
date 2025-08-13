@@ -63,7 +63,7 @@
 .projectType {
   display: inline-block;
   padding: 0.5rem 1.5rem;
-  background: #f59e0b;
+  background: #d45500;
   color: white;
   border-radius: 50px;
   font-weight: 600;
@@ -157,7 +157,7 @@
 }
 
 .checkIcon {
-  color: #f59e0b;
+  color: #d45500;
   font-weight: bold;
 }
 
@@ -183,7 +183,7 @@
   align-items: center;
   gap: 1rem;
   padding: 1rem 2rem;
-  background: #f59e0b;
+  background: #d45500;
   color: white;
   border: none;
   border-radius: 50px;
@@ -230,7 +230,7 @@
 
 .prevLink:hover,
 .nextLink:hover {
-  color: #f59e0b;
+  color: #d45500;
 }
 
 .errorContainer {
@@ -247,7 +247,7 @@
   display: inline-block;
   margin-top: 1.5rem;
   padding: 0.75rem 1.5rem;
-  background: #f59e0b;
+  background: #d45500;
   color: white;
   text-decoration: none;
   border-radius: 50px;

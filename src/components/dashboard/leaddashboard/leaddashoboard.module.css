@@ -109,14 +109,6 @@
   text-transform: capitalize;
 }
 
-.statusBadge {
-  padding: 0.25rem 0.75rem;
-  border-radius: 20px;
-  font-size: 0.875rem;
-  font-weight: 500;
-  text-transform: capitalize;
-}
-
 .commercial {
   background: #0ea5e9;
   color: white;
@@ -132,8 +124,9 @@
   color: white;
 }
 
+/* Status badges */
 .pending {
-  background: #f59e0b;
+  background: #d45500;
   color: white;
 }
 
@@ -177,5 +170,15 @@
 
   .messageCell {
     max-width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .header h1 {
+    font-size: 1.75rem;
   }
 }

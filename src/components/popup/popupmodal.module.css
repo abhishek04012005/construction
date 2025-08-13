@@ -101,7 +101,7 @@
 }
 
 .submitButton {
-  background: #f59e0b;
+  background: #d45500;
   color: white;
   padding: 0.75rem;
   border: none;
@@ -114,7 +114,7 @@
 }
 
 .submitButton:hover {
-  background: #f59e0b;
+  background: #d45500;
 }
 
 @keyframes slideIn {

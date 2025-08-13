@@ -25,6 +25,11 @@
   transform: translateY(-2px);
 }
 
+.logoImage {
+  height: 60px;
+  width: auto;
+}
+
 .navbarLogo a {
   text-decoration: none;
 }
@@ -47,7 +52,7 @@
 }
 
 .highlight {
-  color: #f59e0b;
+  color: #d45500;
 }
 
 .footerSection {

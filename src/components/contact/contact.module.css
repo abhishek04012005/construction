@@ -23,7 +23,7 @@
 }
 
 .highlight {
-  color: #f59e0b;
+  color: #d45500;
   position: relative;
 }
 
@@ -59,7 +59,7 @@
 .input:focus,
 .textarea:focus,
 .select:focus {
-  border-color: #f59e0b;
+  border-color: #d45500;
   outline: none;
   box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
 }
@@ -72,7 +72,7 @@
 .submitBtn {
   width: 100%;
   padding: 1rem 2rem;
-  background: #f59e0b;
+  background: #d45500;
   color: white;
   border: none;
   border-radius: 50px;

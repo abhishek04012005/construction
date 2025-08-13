@@ -3,8 +3,9 @@ import { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import styles from "./popupmodal.module.css";
-import { supabase } from "../../supabase/Supabase";
 import StatusPopup from "../messagepopup/Popup";
+import { submitQuote } from "./submitQuote";
+
 
 interface QuoteFormValues {
   name: string;
@@ -57,18 +58,15 @@ const QuoteModal = ({ isOpen, onClose }: QuoteModalProps) => {
     { resetForm }: { resetForm: () => void }
   ) => {
     try {
-      const { error } = await supabase.from("quotes").insert([
-        {
-          name: values.name,
-          email: values.email,
-          phone: values.phone,
-          project_type: values.projectType,
-          requirements: values.requirements,
-          status: "pending",
-        },
-      ]);
+      const result = await submitQuote({
+        name: values.name,
+        email: values.email,
+        phone: values.phone,
+        project_type: values.projectType,
+        requirements: values.requirements,
+      });
 
-      if (error) throw error;
+      if (!result.success) throw new Error("Failed to submit quote");
 
       setSubmitStatus("success");
       setPopupOpen(true);
@@ -188,8 +186,8 @@ const QuoteModal = ({ isOpen, onClose }: QuoteModalProps) => {
                 {submitStatus === "success"
                   ? "Quote Requested!"
                   : submitStatus === "error"
-                  ? "Error Sending"
-                  : "Request Quote"}
+                    ? "Error Sending"
+                    : "Request Quote"}
               </button>
             </Form>
           </Formik>

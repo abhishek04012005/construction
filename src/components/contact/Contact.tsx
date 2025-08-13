@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
@@ -44,10 +43,7 @@ const Contact = () => {
   >("idle");
   const [popupOpen, setPopupOpen] = useState(false);
 
-  const handleSubmit = async (
-    values: ContactFormValues,
-    { resetForm }: any
-  ) => {
+  const handleSubmit = async (values: ContactFormValues, { resetForm }: any) => {
     try {
       const { error } = await supabase.from("contacts").insert([
         {
@@ -70,6 +66,7 @@ const Contact = () => {
       }, 3000);
     } catch (error) {
       console.error("Error submitting form:", error);
+      setSubmitStatus("error");
     }
   };
 
@@ -188,8 +185,8 @@ const Contact = () => {
                   {submitStatus === "success"
                     ? "Message Sent!"
                     : submitStatus === "error"
-                    ? "Error Sending"
-                    : "Send Message"}
+                      ? "Error Sending"
+                      : "Send Message"}
                 </button>
               </Form>
             </Formik>

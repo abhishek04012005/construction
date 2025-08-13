@@ -1,6 +1,7 @@
 "use client";
+
 import { useEffect, useState } from "react";
-import { supabase } from "../../../supabase/Supabase";
+import { supabase } from "@/supabase/Supabase";
 import styles from "./leaddashoboard.module.css";
 
 interface Quote {
@@ -38,7 +39,7 @@ const LeadDashboard = () => {
       setQuotes(data || []);
       setLoading(false);
     } catch (error) {
-      console.error("Error fetching quotes:", error);
+      console.error("Error:", error);
       setLoading(false);
     }
   };
@@ -89,20 +90,26 @@ const LeadDashboard = () => {
         <h1>Quote Requests Dashboard</h1>
         <div className={styles.stats}>
           <div className={styles.statCard}>
-            <h3>Total</h3>
+            <h3>Total Quotes</h3>
             <p>{quotes.length}</p>
           </div>
           <div className={styles.statCard}>
             <h3>Commercial</h3>
-            <p>{quotes.filter((q) => q.project_type === "Commercial").length}</p>
+            <p>
+              {quotes.filter((q) => q.project_type === "Commercial").length}
+            </p>
           </div>
           <div className={styles.statCard}>
             <h3>Residential</h3>
-            <p>{quotes.filter((q) => q.project_type === "Residential").length}</p>
+            <p>
+              {quotes.filter((q) => q.project_type === "Residential").length}
+            </p>
           </div>
           <div className={styles.statCard}>
             <h3>Industrial</h3>
-            <p>{quotes.filter((q) => q.project_type === "Industrial").length}</p>
+            <p>
+              {quotes.filter((q) => q.project_type === "Industrial").length}
+            </p>
           </div>
         </div>
       </div>
@@ -132,7 +139,7 @@ const LeadDashboard = () => {
                   (sortConfig.direction === "asc" ? "↑" : "↓")}
               </th>
               <th onClick={() => handleSort("phone")}>
-                Phone{" "}
+                Phone No.{" "}
                 {sortConfig.key === "phone" &&
                   (sortConfig.direction === "asc" ? "↑" : "↓")}
               </th>
@@ -146,17 +153,13 @@ const LeadDashboard = () => {
                 {sortConfig.key === "project_type" &&
                   (sortConfig.direction === "asc" ? "↑" : "↓")}
               </th>
-              <th onClick={() => handleSort("status")}>
-                Status{" "}
-                {sortConfig.key === "status" &&
-                  (sortConfig.direction === "asc" ? "↑" : "↓")}
-              </th>
               <th onClick={() => handleSort("created_at")}>
                 Date{" "}
                 {sortConfig.key === "created_at" &&
                   (sortConfig.direction === "asc" ? "↑" : "↓")}
               </th>
               <th>Requirements</th>
+              <th>Status</th>
             </tr>
           </thead>
           <tbody>
@@ -174,20 +177,16 @@ const LeadDashboard = () => {
                     {quote.project_type}
                   </span>
                 </td>
+                <td>{formatDate(quote.created_at)}</td>
+                <td>
+                  <div className={styles.messageCell}>{quote.requirements}</div>
+                </td>
                 <td>
                   <span
-                    className={`${styles.statusBadge} ${
-                      styles[quote.status.toLowerCase()]
-                    }`}
+                    className={`${styles.badge} ${styles[quote.status.toLowerCase()]}`}
                   >
                     {quote.status}
                   </span>
-                </td>
-                <td>{formatDate(quote.created_at)}</td>
-                <td>
-                  <div className={styles.messageCell}>
-                    {quote.requirements}
-                  </div>
                 </td>
               </tr>
             ))}
