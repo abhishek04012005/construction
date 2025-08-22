@@ -4,6 +4,8 @@ import { StaticImageData } from "next/image";
 import project1Image from '../assets/projects/1.jpg'
 import project2Image from '../assets/projects/2.jpg'
 import project3Image from '../assets/projects/3.jpg'
+import project4Image from '../assets/projects/4.png'
+
 
 
 export interface WorkHistory {
@@ -133,7 +135,7 @@ export const projectsData: Project[] = [
     title: "NR Lab",
     description:
       "A next-gen research lab focused on nanotechnology and material sciences. Built with flexible lab modules, collaborative zones, and high-spec equipment integration.",
-    image: project3Image,
+    image: project4Image,
     details: {
       type: "Research",
       industry: "Nanotech Research",
