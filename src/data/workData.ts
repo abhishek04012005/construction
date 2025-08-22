@@ -1,8 +1,11 @@
-// src/data/workData.ts
 import { StaticImageData } from 'next/image';
-import work1image from '../assets/work/1.jpg'
-import work2image from '../assets/work/2.jpg'
-import work3image from '../assets/work/3.jpg'
+import work1image from '../assets/work/warehouse.png'
+import work2image from '../assets/work/commercial.png'
+import work3image from '../assets/work/resedential.png'
+import work4image from '../assets/work/Management.png'
+import work5image from '../assets/work/Renovation.png'
+
+
 
 export interface WorkItem {
   id: number;
@@ -15,62 +18,127 @@ export interface WorkItem {
     location: string;
     year: string;
   };
+  stats: {
+    value: string;
+    label: string;
+  }[];
   highlights: string[];
 }
 
 export const workData: WorkItem[] = [
   {
     id: 1,
-    title: "Ware House Development",
-    description: "We specialize in creating sustainable and innovative infrastructure solutions that stand the test of time.",
-    fullDescription: "We specialize in creating sustainable and innovative infrastructure solutions that stand the test of time. Our expert team combines cutting-edge technology with proven construction methods to deliver exceptional results. Our warehouses are designed for maximum efficiency and durability.",
+    title: "Warehouse Construction",
+    description: "Building high-performance warehouses optimized for logistics, storage, and operational efficiency.",
+    fullDescription: "Our warehouse construction services focus on delivering robust, scalable, and energy-efficient facilities tailored to industrial needs. From layout planning to structural execution, we ensure every warehouse maximizes space utilization, safety, and automation readiness.",
     image: work1image,
     details: {
       type: "Industrial",
       location: "Metro Industrial Park",
       year: "2023"
     },
+    stats: [
+      { value: "120+", label: "Warehouses Built" },
+      { value: "18+", label: "Years in Industrial Construction" },
+      { value: "98%", label: "Client Satisfaction" },
+    ],
     highlights: [
-      "State-of-the-art Storage Solutions",
-      "Energy Efficient Design",
-      "Advanced Security Systems",
-      "Smart Inventory Management"
+      "Optimized Storage Layouts",
+      "High Load-Bearing Structures",
+      "Climate-Controlled Zones",
+      "Integrated Logistics Docking"
     ]
   },
   {
     id: 2,
-    title: "Road Development",
-    description: "Creating sustainable transportation infrastructure with attention to detail and premium quality materials.",
-    fullDescription: "Creating sustainable transportation infrastructure with attention to detail and premium quality materials. Our road development projects incorporate advanced engineering techniques and durable materials to ensure long-lasting performance and safety.",
+    title: "Commercial Construction",
+    description: "Designing and constructing commercial spaces that elevate business functionality and brand presence.",
+    fullDescription: "We specialize in commercial construction that blends architectural elegance with operational practicality. Whether it's retail outlets, office complexes, or mixed-use developments, our team ensures every project meets modern standards of safety, accessibility, and sustainability.",
     image: work2image,
     details: {
-      type: "Infrastructure",
+      type: "Commercial",
       location: "Urban District",
       year: "2023"
     },
+    stats: [
+      { value: "200+", label: "Commercial Projects" },
+      { value: "15+", label: "Years in Business" },
+      { value: "100%", label: "On-Time Delivery" },
+    ],
     highlights: [
-      "Advanced Paving Technology",
-      "Sustainable Materials",
-      "Traffic Flow Optimization",
-      "Environmental Compliance"
+      "Retail & Office Space Expertise",
+      "Premium Finishing Standards",
+      "Smart HVAC & Lighting Systems",
+      "ADA & Fire Safety Compliance"
     ]
   },
   {
     id: 3,
-    title: "Building Constructions",
-    description: "Transforming commercial spaces into productive environments with modern design and superior quality.",
-    fullDescription: "Transforming commercial spaces into productive environments. We create workspaces that foster creativity and efficiency while maintaining the highest standards of construction quality. Our buildings are designed to meet both aesthetic and functional requirements.",
+    title: "Residential Construction",
+    description: "Crafting homes that blend comfort, style, and sustainability for modern living.",
+    fullDescription: "Our residential construction services focus on creating homes that reflect personal taste while ensuring structural integrity and energy efficiency. From luxury villas to affordable housing, we deliver spaces that feel like home from day one.",
     image: work3image,
     details: {
-      type: "Commercial",
-      location: "Business District",
+      type: "Residential",
+      location: "Greenfield Township",
       year: "2023"
     },
+    stats: [
+      { value: "300+", label: "Homes Delivered" },
+      { value: "20+", label: "Years in Residential Design" },
+      { value: "95%", label: "Repeat Clients" },
+    ],
     highlights: [
-      "Modern Architecture",
-      "Sustainable Design",
-      "Smart Building Systems",
-      "Premium Facilities"
+      "Modern & Minimalist Designs",
+      "Eco-Friendly Materials",
+      "Smart Home Integration",
+      "Custom Floor Plans"
+    ]
+  },
+  {
+    id: 4,
+    title: "Project Management",
+    description: "End-to-end construction project management ensuring timely delivery and budget control.",
+    fullDescription: "We offer comprehensive project management services that cover planning, execution, and post-construction support. Our experienced managers coordinate teams, monitor progress, and mitigate risks to ensure every project meets its goals efficiently.",
+    image: work4image,
+    details: {
+      type: "Service",
+      location: "Pan-India Operations",
+      year: "2023"
+    },
+    stats: [
+      { value: "500+", label: "Projects Managed" },
+      { value: "25+", label: "Certified PM Experts" },
+      { value: "99%", label: "Budget Accuracy" },
+    ],
+    highlights: [
+      "Agile Construction Scheduling",
+      "Cost & Resource Optimization",
+      "Stakeholder Coordination",
+      "Real-Time Progress Tracking"
+    ]
+  },
+  {
+    id: 5,
+    title: "Renovation & Remodeling",
+    description: "Revitalizing spaces with modern upgrades, structural improvements, and aesthetic enhancements.",
+    fullDescription: "Our renovation and remodeling services breathe new life into outdated or underutilized spaces. Whether it's a residential makeover or a commercial facelift, we focus on functionality, style, and long-term value with minimal disruption.",
+    image: work5image,
+    details: {
+      type: "Renovation",
+      location: "Citywide Projects",
+      year: "2023"
+    },
+    stats: [
+      { value: "150+", label: "Spaces Transformed" },
+      { value: "10+", label: "Years in Renovation" },
+      { value: "97%", label: "Client Retention" },
+    ],
+    highlights: [
+      "Interior & Exterior Upgrades",
+      "Structural Reinforcement",
+      "Energy-Efficient Retrofitting",
+      "Custom Design Solutions"
     ]
   }
 ];

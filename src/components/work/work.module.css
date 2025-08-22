@@ -29,6 +29,8 @@
   position: relative;
 }
 
+
+
 .highlight::after {
   content: '';
   position: absolute;
@@ -49,6 +51,16 @@
   color: #64748b;
   font-size: 1.2rem;
 }
+
+
+.decorativeLine {
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(to right, #d45500, #d97706);
+  margin: 2rem auto;
+  border-radius: 2px;
+}
+
 
 .workGrid {
   display: flex;
@@ -136,8 +148,9 @@
   margin-bottom: 2.5rem;
 }
 
-.stat {
+.statItem {
   display: flex;
+  align-items: center;
   flex-direction: column;
   gap: 0.5rem;
 }
@@ -184,11 +197,42 @@
   transform: translateX(4px);
 }
 
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  background: #d45500;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+}
+
+.ctaButton:hover {
+  background: #d97706;
+  transform: translateY(-2px);
+}
+
+.btnArrow {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+
+.ctaButton:hover .btnArrow {
+  transform: translateX(4px);
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -200,6 +244,7 @@
     opacity: 0;
     transform: translateX(-50px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -260,4 +305,9 @@
     width: 100%;
     justify-content: center;
   }
+}
+
+.bothButtons {
+  display: flex;
+  gap: 1rem;
 }

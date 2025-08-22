@@ -1,6 +1,6 @@
 .footer {
-  background-color: #5a5a5a;
-  color: #ffffff;
+  background-color: #fff;
+  color: #000;
   padding: 4rem 2rem 2rem;
   width: 100%;
 }
@@ -77,7 +77,7 @@
 }
 
 .companyDesc {
-  color: #cccccc;
+  color: #1e293b;
   line-height: 1.6;
   margin-top: 1rem;
 }
@@ -89,7 +89,7 @@
 }
 
 .footerNav a {
-  color: #cccccc;
+  color: #1e293b;
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -99,7 +99,7 @@
 }
 
 .contactInfo p {
-  color: #cccccc;
+  color: #1e293b;
   margin-bottom: 0.8rem;
 }
 
@@ -147,7 +147,7 @@
 }
 
 .socialLinks a {
-  color: #cccccc;
+  color: #1e293b;
   font-size: 1.5rem;
   transition: color 0.3s ease;
 }
@@ -157,7 +157,7 @@
 }
 
 .copyright {
-  color: #cccccc;
+  color: #1e293b;
   font-size: 0.9rem;
 }
 

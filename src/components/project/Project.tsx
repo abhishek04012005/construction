@@ -16,7 +16,7 @@ const Projects = () => {
       <div className={styles.container}>
         <div className={styles.sectionHeader}>
           <h2 className={styles.title}>
-            Featured <span className={styles.highlight}>Projects</span>
+            Our <span className={styles.highlight}>Projects</span>
           </h2>
           <p className={styles.subtitle}>Transforming Visions into Reality</p>
           <div className={styles.decorativeLine}></div>
@@ -57,21 +57,21 @@ const Projects = () => {
 
                 <div className={styles.projectDetails}>
                   <div className={styles.detailItem}>
-                    <span className={styles.detailLabel}>Location</span>
+                    <span className={styles.detailLabel}>Industry</span>
                     <span className={styles.detailValue}>
-                      {project.details.location}
+                      {project.details.industry}
                     </span>
                   </div>
                   <div className={styles.detailItem}>
-                    <span className={styles.detailLabel}>Year</span>
+                    <span className={styles.detailLabel}>Headquarters</span>
                     <span className={styles.detailValue}>
-                      {project.details.year}
+                      {project.details.headquarters}
                     </span>
                   </div>
                   <div className={styles.detailItem}>
-                    <span className={styles.detailLabel}>Category</span>
+                    <span className={styles.detailLabel}>Established</span>
                     <span className={styles.detailValue}>
-                      {project.details.type}
+                      {project.details.established}
                     </span>
                   </div>
                 </div>

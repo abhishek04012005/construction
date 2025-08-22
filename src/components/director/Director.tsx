@@ -58,9 +58,14 @@ const Director = () => {
   return (
     <section className={styles.directorSection}>
       <div className={styles.container}>
-        <h2 className={styles.title}>
-          Our <span className={styles.highlight}>Team</span>
-        </h2>
+         <div className={styles.header}>
+          <h1 className={styles.title}>
+            Our <span className={styles.highlight}>Team</span>
+          </h1>
+          <p className={styles.subtitle}>Building Excellence Since 2015</p>
+          <div className={styles.decorativeLine}></div>
+
+        </div>
         <div className={styles.grid}>
           {directorData.map((director, index) => (
             <div key={index} className={styles.card}>

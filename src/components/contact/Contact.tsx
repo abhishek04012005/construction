@@ -44,48 +44,52 @@ const Contact = () => {
   >("idle");
   const [popupOpen, setPopupOpen] = useState(false);
 
- const handleSubmit = async (
-  values: ContactFormValues,
-  { resetForm }: FormikHelpers<ContactFormValues>
-) => {
-  try {
-    const { error } = await supabase.from("contacts").insert([
-      {
-        name: values.name,
-        email: values.email,
-        phone: values.phone,
-        project_type: values.projectType,
-        message: values.message,
-      },
-    ]);
+  const handleSubmit = async (
+    values: ContactFormValues,
+    { resetForm }: FormikHelpers<ContactFormValues>
+  ) => {
+    try {
+      const { error } = await supabase.from("contacts").insert([
+        {
+          name: values.name,
+          email: values.email,
+          phone: values.phone,
+          project_type: values.projectType,
+          message: values.message,
+        },
+      ]);
 
-    if (error) throw error;
+      if (error) throw error;
 
-    setSubmitStatus("success");
-    setPopupOpen(true);
-    resetForm();
+      setSubmitStatus("success");
+      setPopupOpen(true);
+      resetForm();
 
-    setTimeout(() => {
-      setSubmitStatus("idle");
-    }, 3000);
-  } catch (error) {
-    if (error instanceof Error) {
-      console.error("Error submitting form:", error.message);
-    } else {
-      console.error("Error submitting form:", error);
+      setTimeout(() => {
+        setSubmitStatus("idle");
+      }, 3000);
+    } catch (error) {
+      if (error instanceof Error) {
+        console.error("Error submitting form:", error.message);
+      } else {
+        console.error("Error submitting form:", error);
+      }
+      setSubmitStatus("error");
     }
-    setSubmitStatus("error");
-  }
-};
+  };
 
   return (
     <>
       <section className={styles.contactSection}>
         <div className={styles.container}>
+
+
           <div className={styles.sectionHeader}>
             <h2 className={styles.title}>
               Get in <span className={styles.highlight}>Touch</span>
             </h2>
+            <p className={styles.subtitle}>Contact us</p>
+            <div className={styles.decorativeLine}></div>
           </div>
 
           <div className={styles.formContainer}>

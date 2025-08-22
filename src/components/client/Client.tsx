@@ -1,109 +1,141 @@
-"use client";
-import React, { useState, useEffect } from "react";
-import styles from "./client.module.css";
+'use client'
+import React, { useRef } from 'react';
+import Image from 'next/image';
+import styles from './client.module.css';
+import { FaQuoteRight, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import ClientLogo1 from '../../assets/client/alkem.png'
+import ClientLogo2 from '../../assets/client/lupin.png';
+import ClientLogo3 from '../../assets/client/scorpion.png';
+import ClientLogo4 from '../../assets/client/nr-lab.png';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Autoplay } from 'swiper/modules';
+import type { Swiper as SwiperType } from 'swiper';
 
-const ClientPage: React.FC = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+import 'swiper/css';
+import 'swiper/css/navigation';
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prevIndex) =>
-        prevIndex === reviews.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 5000);
+const clients = [
+  {
+    id: 1,
+    name: 'Alkem',
+    logo: ClientLogo1,
+    project: 'Pharmaceutical Manufacturing Unit',
+    testimonial:
+      'Their expertise in pharma-grade construction was evident throughout. The facility meets all regulatory standards and supports seamless operations.',
+  },
+  {
+    id: 2,
+    name: 'Lupin',
+    logo: ClientLogo2,
+    project: 'Research & Development Campus',
+    testimonial:
+      'From lab design to energy efficiency, every detail was handled with precision. The campus fosters innovation and collaboration effortlessly.',
+  },
+  {
+    id: 3,
+    name: 'Scorpion',
+    logo: ClientLogo3,
+    project: 'Defense Technology Facility',
+    testimonial:
+      'They delivered a secure, high-performance facility tailored to our strategic needs. Exceptional attention to detail and confidentiality.',
+  },
+  {
+    id: 4,
+    name: 'NR Lab',
+    logo: ClientLogo4,
+    project: 'Advanced Nanotech Lab',
+    testimonial:
+      'The modular lab design and cleanroom integration exceeded expectations. A future-ready space that empowers cutting-edge research.',
+  }
+];
 
-    return () => clearInterval(timer);
-  }, []);
 
-  const handleDotClick = (index: number) => {
-    setCurrentIndex(index);
-  };
-
-  const handlePrevClick = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? reviews.length - 1 : prevIndex - 1
-    );
-  };
-
-  const handleNextClick = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === reviews.length - 1 ? 0 : prevIndex + 1
-    );
-  };
+const OurClients = () => {
+  const swiperRef = useRef<SwiperType | null>(null);
 
   return (
-    <div className={styles.container}>
-      <section className={styles.reviewSection}>
+    <section className={styles.clientSection}>
+      <div className={styles.container}>
         <div className={styles.sectionHeader}>
           <h2 className={styles.title}>
-            Our <span className={styles.highlight}>Clients</span>
+            Our <span className={styles.highlight}>Client</span>
           </h2>
-          <p className={styles.subtitle}>Transforming Visions into Reality</p>
+          <p className={styles.subtitle}>Experience clinets</p>
           <div className={styles.decorativeLine}></div>
         </div>
-        <div className={styles.carouselContainer}>
+
+
+        <div className={styles.sliderContainer}>
           <button
-            className={`${styles.carouselButton} ${styles.prevButton}`}
-            onClick={handlePrevClick}
+            className={`${styles.navigationButton} ${styles.prevButton}`}
+            onClick={() => swiperRef.current?.slidePrev()}
+            aria-label="Previous slide"
           >
-            ‹
+            <FaChevronLeft />
+          </button>
+          <button
+            className={`${styles.navigationButton} ${styles.nextButton}`}
+            onClick={() => swiperRef.current?.slideNext()}
+            aria-label="Next slide"
+          >
+            <FaChevronRight />
           </button>
 
-          <div className={styles.reviewCard}>
-            <div className={styles.reviewRating}>★★★★★</div>
-            <p className={styles.reviewText}>{reviews[currentIndex].text}</p>
-            <div className={styles.reviewAuthor}>
-              <div className={styles.authorAvatar}>
-                {reviews[currentIndex].name[0]}
-              </div>
-              <div className={styles.authorInfo}>
-                <strong>{reviews[currentIndex].name}</strong>
-                <span>{reviews[currentIndex].role}</span>
-              </div>
-            </div>
-          </div>
-
-          <button
-            className={`${styles.carouselButton} ${styles.nextButton}`}
-            onClick={handleNextClick}
+          <Swiper
+            modules={[Navigation, Autoplay]}
+            spaceBetween={30}
+            slidesPerView={1}
+            loop={true}
+            speed={1000}
+            onBeforeInit={(swiper) => {
+              swiperRef.current = swiper;
+            }}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true
+            }}
+            breakpoints={{
+              640: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              1024: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+              },
+            }}
+            className={styles.swiper}
           >
-            ›
-          </button>
+            {clients.map((client) => (
+              <SwiperSlide key={client.id}>
+                <div className={styles.clientCard}>
+                  <div className={styles.logoContainer}>
+                    <Image
+                      src={client.logo}
+                      alt={client.name}
+                      width={120}
+                      height={60}
+                      className={styles.clientLogo}
+                      priority
+                    />
+                  </div>
+                  <div className={styles.clientInfo}>
+                    <h3 className={styles.clientName}>{client.name}</h3>
+                    <p className={styles.projectType}>{client.project}</p>
+                    <div className={styles.testimonialWrapper}>
+                      <FaQuoteRight className={styles.quoteIcon} />
+                      <p className={styles.testimonial}>{client.testimonial}</p>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
-
-        <div className={styles.dotIndicators}>
-          {reviews.map((_, index) => (
-            <button
-              key={index}
-              className={`${styles.dot} ${
-                index === currentIndex ? styles.activeDot : ""
-              }`}
-              onClick={() => handleDotClick(index)}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
-        </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 };
 
-const reviews = [
-  {
-    text: "The best resume builder I've ever used. Got 3 interviews in my first week!",
-    name: "Alex Chen",
-    role: "Software Developer",
-  },
-  {
-    text: "Simple, professional, and effective. Highly recommended!",
-    name: "Sarah Miller",
-    role: "Marketing Manager",
-  },
-  {
-    text: "Outstanding templates and excellent customer support.",
-    name: "James Wilson",
-    role: "Product Designer",
-  },
-];
-
-export default ClientPage;
+export default OurClients;

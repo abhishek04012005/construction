@@ -11,12 +11,6 @@ const Footer = () => {
       <div className={styles.footerContent}>
         <div className={styles.footerSection}>
           <div className={styles.logoWrapper}>
-            {/* <div className={styles.logoText}>
-              <span className={styles.companyName}>
-                Sah<span className={styles.highlight}>Construction</span>
-              </span>
-
-            </div> */}
             <Image className={styles.logoImage} src={Logo} alt="Logo" height={60} width={60} />
           </div>
           <p className={styles.companyDesc}>
@@ -43,8 +37,8 @@ const Footer = () => {
             <p>Patna</p>
             <p>India</p>
             <p>Phone: +91-98826-26050</p>
-            <p>Email: ashokkumarsah638@gmail.com</p>
-          </div>o
+            <p>Email: contact@sahconstruction.com</p>
+          </div>
         </div>
 
 

@@ -1,7 +1,9 @@
 import { StaticImageData } from "next/image";
-import equipment1image from "../assets/equipment/1.webp"
-import equipment2image from "../assets/equipment/2.jpg"
-import equipment3image from "../assets/equipment/3.jpg"
+import equipment1image from "../assets/equipment/mixture-machine.png"
+import equipment2image from "../assets/equipment/shutteringplates.png"
+import equipment3image from "../assets/equipment/Scaffolding.png"
+import equipment4image from "../assets/equipment/compactors.png"
+
 
 
 
@@ -22,53 +24,70 @@ export interface Equipment {
 export const equipmentData: Equipment[] = [
   {
     id: 1,
-    name: "Scaffolding",
+    name: "Mixture Machine",
     description:
-      "State-of-the-art excavator with advanced hydraulic system, perfect for large-scale construction projects. Features enhanced fuel efficiency and operator comfort.",
+      "Heavy-duty concrete mixture machine designed for consistent blending of cement, sand, and aggregates. Ideal for both small and large-scale construction sites.",
     image: equipment1image,
     details: {
-      category: "Earth Moving",
-      manufacturer: "CAT",
+      category: "Concrete Equipment",
+      manufacturer: "Universal",
       condition: "New",
     },
     specifications: [
-      "20-ton capacity",
-      "Advanced GPS tracking",
-      "Eco-friendly operation",
+      "500L drum capacity",
+      "Electric and diesel variants",
+      "Continuous mixing system",
     ],
   },
   {
     id: 2,
-    name: "Tower Crane",
+    name: "Shuttering Plates",
     description:
-      "High-performance tower crane designed for maximum stability and precision in high-rise construction. Equipped with advanced safety features and remote monitoring.",
+      "Durable shuttering plates used for forming concrete structures. Engineered for high load-bearing capacity and reusability across multiple construction cycles.",
     image: equipment2image,
     details: {
-      category: "Lifting",
-      manufacturer: "Liebherr",
+      category: "Formwork",
+      manufacturer: "Apollo Formtech",
       condition: "Excellent",
     },
     specifications: [
-      "50m reach radius",
-      "Digital load monitoring",
-      "Wind resistance system",
+      "MS sheet with reinforced edges",
+      "Standard sizes: 600mm x 900mm",
+      "Rust-resistant coating",
     ],
   },
   {
     id: 3,
-    name: "Concrete Pump Truck",
+    name: "Scaffolding",
     description:
-      "Modern concrete pump truck with extended boom reach and precise pour control. Ideal for large-scale concrete applications and high-rise construction.",
+      "Modular scaffolding system for safe and efficient access during construction, maintenance, and repair work. Designed for quick assembly and maximum stability.",
     image: equipment3image,
     details: {
-      category: "Concrete",
-      manufacturer: "Putzmeister",
+      category: "Access Equipment",
+      manufacturer: "Tata Structura",
+      condition: "Used",
+    },
+    specifications: [
+      "Hot-dip galvanized steel",
+      "Adjustable height frames",
+      "Anti-slip platforms",
+    ],
+  },
+  {
+    id: 4,
+    name: "Compactors",
+    description:
+      "High-performance soil compactor used for ground leveling and surface preparation. Ensures optimal soil density for foundations and roadworks.",
+    image: equipment4image,
+    details: {
+      category: "Earth Moving",
+      manufacturer: "JCB",
       condition: "New",
     },
     specifications: [
-      "42m boom length",
-      "Smart pumping system",
-      "High-pressure capacity",
+      "10-ton operating weight",
+      "Vibratory drum system",
+      "Fuel-efficient diesel engine",
     ],
-  },
+  }
 ];

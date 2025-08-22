@@ -52,14 +52,6 @@ const Navbar = () => {
           <div className={styles.navbarLogo}>
             <Link href="/" onClick={handleNavClick}>
               <div className={styles.logoWrapper}>
-                {/* <div className={styles.logoText}>
-                  <span className={styles.companyName}>
-                    Sah<span className={styles.highlight}>Construction</span>
-                  </span>
-                  <span className={styles.tagline}>
-                    Excellence in Construction
-                  </span>
-                </div> */}
                 <Image className={styles.logoImage} src={Logo} alt="Logo" height={60} width={60} />
               </div>
             </Link>

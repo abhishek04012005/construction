@@ -6,6 +6,7 @@ import EquipmentSection from "@/components/equipment/Equipment";
 import Contact from "@/components/contact/Contact";
 import About from "@/components/about/About";
 import Director from "@/components/director/Director";
+import Testimonial from "@/components/testimonials/Testimonial";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         <Projects />
         <EquipmentSection />
         <ClientPage />
+        <Testimonial/>
         <Contact />
       </main>
     </div>

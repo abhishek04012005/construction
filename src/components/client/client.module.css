@@ -1,45 +1,19 @@
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.clientSection {
+  padding: 6rem 0;
+  background: linear-gradient(to bottom, #f8fafc, #ffffff);
+  position: relative;
+  overflow: hidden;
 }
 
 .container {
-  width: 100%;
-  background: #fafafa;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-}
-
-.reviewSection {
-  padding: 5rem 2rem;
-  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-}
-
-.sectionTitle {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
-  color: #1f2937;
-}
-
-.carouselContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
+  padding: 0 1rem;
   position: relative;
-  padding: 1rem;
 }
 
 .title {
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 800;
   color: #1e293b;
   margin-bottom: 1rem;
@@ -66,17 +40,93 @@
   transform: scaleX(1);
 }
 
-.sectionHeader {
-  text-align: center;
-  margin-bottom: 6rem;
-  animation: fadeIn 1s ease;
-}
-
 .subtitle {
   color: #64748b;
   font-size: 1.2rem;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.titleAccent {
+  color: #d45500;
+  position: relative;
+}
+
+.titleAccent::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #d45500;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.sectionTitle:hover .titleAccent::after {
+  transform: scaleX(1);
+}
+
+.headerLine {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #d45500, transparent);
+  margin: 1.5rem auto;
+}
+
+.sectionDescription {
+  color: #666;
+  font-size: 1.1rem;
   max-width: 600px;
   margin: 0 auto;
+  line-height: 1.6;
+}
+
+.sliderContainer {
+  position: relative;
+  padding: 0 40px;
+  margin-top: 2rem;
+}
+
+.swiper {
+  padding: 20px 0;
+  overflow: visible;
+}
+
+.navigationButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #d45500;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  border: none;
+  outline: none;
+  box-shadow: 0 4px 15px rgba(245, 190, 145, 0.2);
 }
 
 .decorativeLine {
@@ -87,134 +137,200 @@
   border-radius: 2px;
 }
 
-.reviewCard {
-  background: white;
-  padding: 3rem;
-  border-radius: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  width: 100%;
-  max-width: 600px;
-  min-height: 300px;
-  display: flex;
-  flex-direction: column;
-  animation: fadeIn 0.5s ease forwards;
+.navigationButton:hover {
+  background: #1e293b;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
-.reviewRating {
-  color: #fbbf24;
+.prevButton {
+  left: -20px;
+}
+
+.nextButton {
+  right: -20px;
+}
+
+.clientCard {
+  background: #fff;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(245, 190, 145, 0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  border: 1px solid rgba(245, 190, 145, 0.1);
+}
+
+.clientCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(245, 190, 145, 0.2);
+  border-color: rgba(245, 190, 145, 0.3);
+}
+
+.logoContainer {
+  width: 120px;
+  height: 60px;
   margin-bottom: 1.5rem;
-  font-size: 1.25rem;
-}
-
-.reviewText {
-  color: #4b5563;
-  line-height: 1.8;
-  margin-bottom: 2rem;
-  font-size: 1.2rem;
-  flex-grow: 1;
-}
-
-.reviewAuthor {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-top: auto;
-}
-
-.authorAvatar {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: #2563eb;
-  color: white;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
-  font-size: 1.2rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 10px;
+  transition: all 0.3s ease;
 }
 
-.authorInfo {
+.clientLogo {
+  object-fit: contain;
+  /* filter: grayscale(100%); */
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.clientCard:hover .clientLogo {
+  /* filter: grayscale(0%); */
+  opacity: 1;
+}
+
+.clientCard:hover .logoContainer {
+  background: #fff;
+  box-shadow: 0 5px 15px rgba(245, 190, 145, 0.15);
+}
+
+.clientInfo {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 1rem;
 }
 
-.authorInfo strong {
-  color: #1f2937;
-  font-size: 1.1rem;
+.clientName {
+  color: #1e293b;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
 }
 
-.authorInfo span {
-  color: #6b7280;
+.projectType {
+  color: #d45500;
   font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
 }
 
-.carouselButton {
-  background: none;
-  border: none;
-  font-size: 3rem;
-  color: #2563eb;
-  cursor: pointer;
-  padding: 0 1rem;
-  transition: color 0.3s ease;
+.testimonialWrapper {
+  position: relative;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(245, 190, 145, 0.2);
 }
 
-.carouselButton:hover {
-  color: #1d4ed8;
+.quoteIcon {
+  color: #d45500;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.8;
+  transition: transform 0.3s ease;
 }
 
-.dotIndicators {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-top: 2rem;
+.clientCard:hover .quoteIcon {
+  transform: rotate(-10deg);
 }
 
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  border: none;
-  background-color: #e5e7eb;
-  cursor: pointer;
-  padding: 0;
-  transition: background-color 0.3s ease;
+.testimonial {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  font-style: italic;
 }
 
-.activeDot {
-  background-color: #2563eb;
+/* Swiper overrides */
+.swiper-slide {
+  height: auto;
+  opacity: 0.5;
+  transform: scale(0.9);
+  transition: all 0.3s ease;
+}
+
+.swiper-slide-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1024px) {
+  .sliderContainer {
+    padding: 0 35px;
+  }
 }
 
 @media (max-width: 768px) {
-  .reviewSection {
-    padding: 3rem 1rem;
+  .clientSection {
+    padding: 4rem 0;
   }
 
   .sectionTitle {
     font-size: 2rem;
   }
 
-  .reviewCard {
-    padding: 2rem;
-    min-height: 250px;
+  .sliderContainer {
+    padding: 0 30px;
   }
 
-  .carouselButton {
-    font-size: 2rem;
+  .navigationButton {
+    width: 35px;
+    height: 35px;
+  }
+
+  .clientCard {
+    padding: 1.75rem;
   }
 }
 
 @media (max-width: 480px) {
-  .reviewCard {
+  .clientCard {
     padding: 1.5rem;
   }
 
-  .reviewText {
-    font-size: 1rem;
+  .sectionTitle {
+    font-size: 1.75rem;
   }
 
-  .carouselContainer {
-    gap: 1rem;
+  .sliderContainer {
+    padding: 0 25px;
+  }
+
+  .navigationButton {
+    width: 30px;
+    height: 30px;
+  }
+
+  .logoContainer {
+    width: 100px;
+    height: 50px;
+  }
+
+  .clientName {
+    font-size: 1.1rem;
+  }
+
+  .testimonial {
+    font-size: 0.9rem;
   }
 }

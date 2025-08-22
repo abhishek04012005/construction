@@ -6,6 +6,11 @@ import project2Image from '../assets/projects/2.jpg'
 import project3Image from '../assets/projects/3.jpg'
 
 
+export interface WorkHistory {
+  year: string;
+  location: string;
+  description: string;
+}
 
 export interface Project {
   id: number;
@@ -14,62 +19,145 @@ export interface Project {
   image: string | StaticImageData;
   details: {
     type: string;
-    location: string;
-    year: string;
+    industry: string;
+    headquarters: string;
+    established: string;
   };
   highlights: string[];
+   workHistory: {
+    year: string;
+    location: string;
+    description: string;
+}[]
 }
+
 
 export const projectsData: Project[] = [
   {
     id: 1,
-    title: "Urban Sky Tower",
+    title: "Alkem Laboratories Limited",
     description:
-      "A state-of-the-art commercial tower featuring sustainable design principles, smart building systems, and premium office spaces that redefine modern workplace standards.",
+      "A pharmaceutical manufacturing and R&D facility built to meet global standards. Designed for operational efficiency, regulatory compliance, and innovation in healthcare.",
     image: project1Image,
     details: {
-      type: "Commercial",
-      location: "Downtown Metro",
-      year: "2023",
+      type: "Pharmaceutical",
+      industry: "Pharmaceuticals",
+      headquarters: "Mumbai, India",
+      established: "1973",
     },
     highlights: [
-      "LEED Platinum Certified",
-      "Smart Building Integration",
-      "Premium Office Spaces",
+      "GMP-Compliant Infrastructure",
+      "Temperature-Controlled Zones",
+      "Advanced Waste Management",
     ],
+    workHistory: [
+      {
+        year: "2012-2014",
+        location: "Sikkim",
+        description: "Construction of pharmaceutical manufacturing facility"
+      },
+      {
+        year: "2014",
+        location: "Taloja, Navi Mumbai",
+        description: "Boundary Wall Building Work"
+      },
+      {
+        year: "2016",
+        location: "Baddi, Himachal Pradesh",
+        description: "Boundary Wall Construction"
+      },
+      {
+        year: "2016-2017",
+        location: "Baddi, Himachal Pradesh",
+        description: "Road Work Development"
+      }
+    ]
   },
   {
     id: 2,
-    title: "Green Valley Residences",
+    title: "Lupin",
     description:
-      "Luxury residential complex harmoniously blending modern architecture with nature. Features sustainable living spaces and premium amenities for an elevated lifestyle.",
+      "A cutting-edge pharmaceutical campus featuring research labs, clean rooms, and sustainable production units. Built to support innovation and scalability in drug development.",
     image: project2Image,
     details: {
-      type: "Residential",
-      location: "Green Valley",
-      year: "2023",
+      type: "Pharmaceutical",
+      industry: "Pharmaceuticals & Biotech",
+      headquarters: "Mumbai, India",
+      established: "1968",
     },
     highlights: [
-      "Eco-friendly Design",
-      "Premium Amenities",
-      "Smart Home Systems",
+      "ISO-Certified Labs",
+      "Energy-Efficient Systems",
+      "Modular Expansion Capability",
     ],
+    workHistory: [
+      {
+        year: "2016-2017",
+        location: "Mumbai",
+        description: "Formulation Plant Work"
+      },
+    ]
   },
   {
     id: 3,
-    title: "Innovation Hub",
+    title: "Scorpion",
     description:
-      "A cutting-edge research and development facility designed to foster innovation and collaboration. Features state-of-the-art laboratories and flexible workspaces.",
+      "A high-security defense-grade facility designed for precision engineering and tactical research. Combines robust architecture with advanced surveillance and control systems.",
     image: project3Image,
     details: {
-      type: "Industrial",
-      location: "Tech District",
-      year: "2023",
+      type: "Defense",
+      industry: "Defense Technology",
+      headquarters: "Hyderabad, India",
+      established: "2010",
     },
     highlights: [
-      "Advanced Facilities",
-      "Research Labs",
-      "Collaborative Spaces",
+      "Secure Perimeter Design",
+      "R&D Bunkers",
+      "AI-Driven Monitoring",
     ],
+    workHistory: [
+      {
+        year: "2021-2022",
+        location: "Bihar",
+        description: "Construction of Warehous"
+      },
+      {
+        year: "2022-2023",
+        location: "Siliguri",
+        description: "Warehouse & Boundary Wall"
+      },
+    ]
+  },
+  {
+    id: 4,
+    title: "NR Lab",
+    description:
+      "A next-gen research lab focused on nanotechnology and material sciences. Built with flexible lab modules, collaborative zones, and high-spec equipment integration.",
+    image: project3Image,
+    details: {
+      type: "Research",
+      industry: "Nanotech Research",
+      headquarters: "Bangalore, India",
+      established: "2015",
+    },
+    highlights: [
+      "Cleanroom Environments",
+      "Modular Lab Design",
+      "Collaborative Research Pods",
+    ],
+    workHistory: [
+      {
+        year: "2012-2014",
+        location: "Kathua",
+        description: "Beta Formulation Plant"
+      },
+      {
+        year: "2021-Till",
+        location: "Venus Remedies",
+        description: "Annual Maintenance Work of Pharmaceutical Plant"
+      },
+    ]
   },
 ];
+
+

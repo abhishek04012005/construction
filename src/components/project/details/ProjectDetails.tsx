@@ -1,4 +1,3 @@
-// src/components/project/ProjectDetails.tsx
 "use client";
 import { useState } from "react";
 import Image from "next/image";
@@ -7,8 +6,6 @@ import QuoteModal from "../../../components/popup/PopupModal";
 import styles from "./projectdetails.module.css";
 import { projectsData } from "@/data/project";
 
-
-
 interface ProjectDetailsProps {
   id: string;
 }
@@ -16,7 +13,7 @@ interface ProjectDetailsProps {
 const ProjectDetails = ({ id }: ProjectDetailsProps) => {
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
   const project = projectsData.find(p => p.id === Number(id));
-  
+
   if (!project) {
     return (
       <div className={styles.errorContainer}>
@@ -27,8 +24,6 @@ const ProjectDetails = ({ id }: ProjectDetailsProps) => {
       </div>
     );
   }
-
-
 
   return (
     <>
@@ -67,15 +62,15 @@ const ProjectDetails = ({ id }: ProjectDetailsProps) => {
             <section className={styles.details}>
               <div className={styles.detailsGrid}>
                 <div className={styles.detailItem}>
-                  <span className={styles.detailLabel}>Location</span>
+                  <span className={styles.detailLabel}>Headquarters</span>
                   <span className={styles.detailValue}>
-                    {project.details.location}
+                    {project.details.headquarters}
                   </span>
                 </div>
                 <div className={styles.detailItem}>
-                  <span className={styles.detailLabel}>Year</span>
+                  <span className={styles.detailLabel}>Established</span>
                   <span className={styles.detailValue}>
-                    {project.details.year}
+                    {project.details.established}
                   </span>
                 </div>
                 <div className={styles.detailItem}>
@@ -123,7 +118,45 @@ const ProjectDetails = ({ id }: ProjectDetailsProps) => {
               </button>
             </section>
 
-      
+            {project.workHistory && project.workHistory.length > 0 && (
+              <section className={styles.workHistory}>
+                <h2>Work History</h2>
+                <div className={styles.workGrid}>
+                  {project.workHistory.map((work, index) => (
+                    <div key={index} className={styles.workCard}>
+                      <div className={styles.workYear}>{work.year}</div>
+                      <div className={styles.workContent}>
+                        <div className={styles.workLocation}>
+                          <svg
+                            className={styles.locationIcon}
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
+                              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                            />
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
+                              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                            />
+                          </svg>
+                          {work.location}
+                        </div>
+                        <p className={styles.workDescription}>
+                          {work.description}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
           </div>
         </div>
       </article>

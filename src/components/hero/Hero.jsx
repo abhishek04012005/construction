@@ -13,8 +13,8 @@ const Hero = () => {
       <div className={styles.container}>
         <div className={styles.content}>
           <h1 className={styles.title}>
-            Building <span className={styles.highlight}>Excellence</span>
-            <br />Into Every Project
+             <span className={styles.highlight}>Building</span> Tomorrow
+            <br />Today
           </h1>
           <p className={styles.subtitle}>
             Transform your vision into reality with our expert construction services. 
@@ -34,7 +34,7 @@ const Hero = () => {
           </div>
           <div className={styles.stats}>
             <div className={styles.statItem}>
-              <span className={styles.statNumber}>25+</span>
+              <span className={styles.statNumber}>10+</span>
               <span className={styles.statLabel}>Years Experience</span>
             </div>
             <div className={styles.statItem}>
