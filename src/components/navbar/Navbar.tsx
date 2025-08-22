@@ -1,123 +1,73 @@
-// src/components/navbar/Navbar.tsx
+
 "use client";
-import { useState, useEffect } from "react";
-import styles from "./navbar.module.css";
-import QuoteModal from "../popup/PopupModal";
-import Link from "next/link";
-import Logo from "../../assets/logo.svg"
-import Image from "next/image";
+import { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
+import styles from './navbar.module.css';
+import Image from 'next/image';
+import Logo from '../../assets/logo.png';
+
+interface NavItem {
+  id: number;
+  title: string;
+  path: string;
+}
+
+const navItems: NavItem[] = [
+  { id: 1, title: 'Home', path: '/' },
+  { id: 2, title: 'About Us', path: '/about' },
+  { id: 3, title: 'Projects', path: '/projects' },
+  { id: 4, title: 'Works', path: '/works' },
+  { id: 5, title: 'Contact Us', path: '/contact' },
+];
 
 const Navbar = () => {
+  const menuRef = useRef<HTMLUListElement>(null);
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const [activeItem, setActiveItem] = useState("");
-  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
+  const [isScrolled] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // Close menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      const menu = document.getElementById('mobile-menu');
-      if (isOpen && menu && !menu.contains(event.target as Node)) {
+      if (isOpen && menuRef.current && !menuRef.current.contains(event.target as Node)) {
         setIsOpen(false);
       }
     };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isOpen]);
 
-  const navItems = ["Home", "Projects", "Works", "Equipment", "About"];
-
-  const handleNavClick = () => {
-    setIsOpen(false);
-  };
-
-  const handleQuoteClick = () => {
-    setIsOpen(false);
-    setIsQuoteModalOpen(true);
-  };
-
   return (
-    <>
-      <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`}>
-        <div className={styles.navbarContainer}>
-          <div className={styles.navbarLogo}>
-            <Link href="/" onClick={handleNavClick}>
-              <div className={styles.logoWrapper}>
-                <Image className={styles.logoImage} src={Logo} alt="Logo" height={60} width={60} />
-              </div>
-            </Link>
-          </div>
+    <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}>
+      <div className={styles.navContainer}>
+        <Link href="/" className={styles.logo}>
+          <Image className={styles.logoImage} src={Logo} alt="Sharma Interiors" width={150} height={50} />
+        </Link>
 
-          <div className={styles.menuWrapper}>
-            <ul
-              id="mobile-menu"
-              className={`${styles.navLinks} ${isOpen ? styles.active : ""}`}
-            >
-              {navItems.map((item) => (
-                <li
-                  key={item}
-                  className={`${styles.navItem} ${
-                    activeItem === item ? styles.active : ""
-                  }`}
-                  onMouseEnter={() => setActiveItem(item)}
-                  onMouseLeave={() => setActiveItem("")}
-                >
-                  <Link
-                    href={`/${
-                      item.toLowerCase() === "home" ? "" : item.toLowerCase()
-                    }`}
-                    className={styles.navLink}
-                    onClick={handleNavClick}
-                  >
-                    <span className={styles.linkText}>{item}</span>
-                    <span className={styles.linkHighlight}></span>
-                  </Link>
-                </li>
-              ))}
-              <li className={styles.navItem}>
-                <button
-                  className={styles.contactBtn}
-                  onClick={handleQuoteClick}
-                >
-                  <span>Get Quote</span>
-                  <div className={styles.btnIcon}>
-                    <svg viewBox="0 0 24 24" className={styles.arrow}>
-                      <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" />
-                    </svg>
-                  </div>
-                </button>
-              </li>
-            </ul>
-
-            <button
-              className={`${styles.navbarToggle} ${isOpen ? styles.active : ""}`}
-              onClick={() => setIsOpen(!isOpen)}
-              aria-label="Toggle menu"
-              aria-expanded={isOpen}
-            >
-              <div className={styles.hamburger}>
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-            </button>
+        <div
+          className={`${styles.hamburger} ${isOpen ? styles.active : ''}`}
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <div className={styles.hamburgerIcon}>
+            <span></span>
+            <span></span>
+            <span></span>
           </div>
         </div>
-      </nav>
-      <QuoteModal
-        isOpen={isQuoteModalOpen}
-        onClose={() => setIsQuoteModalOpen(false)}
-      />
-    </>
+
+        <ul ref={menuRef} className={`${styles.navMenu} ${isOpen ? styles.active : ''}`}>
+          {navItems.map((item) => (
+            <li key={item.id} className={styles.navItem}>
+              <Link
+                href={item.path}
+                className={styles.navLink}
+                onClick={() => setIsOpen(false)}
+              >
+                {item.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </nav>
   );
 };
 

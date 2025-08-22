@@ -34,10 +34,9 @@ const Footer = () => {
         <div className={styles.footerSection}>
           <h4>Contact Info</h4>
           <div className={styles.contactInfo}>
-            <p>Patna</p>
-            <p>India</p>
-            <p>Phone: +91-98826-26050</p>
-            <p>Email: contact@sahconstruction.com</p>
+            <p>Sah Constructions, Devashish Building, Senapati Bapat Marg, Lower Parel, Mumbai, Maharashtra 400013</p>
+            <p>Phone: 9882626050, 7018009352</p>
+            <p>Email: contact@sahconstructions.com</p>
           </div>
         </div>
 

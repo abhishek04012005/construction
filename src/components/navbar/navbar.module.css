@@ -1,153 +1,47 @@
-/* src/components/navbar/navbar.module.css */
-.navbarToggle.active .hamburger span:first-child {
-  transform: rotate(45deg) translate(6px, 6px);
-}
 
-.navbarToggle.active .hamburger span:nth-child(2) {
-  opacity: 0;
-}
-
-.navbarToggle.active .hamburger span:last-child {
-  transform: rotate(-45deg) translate(6px, -6px);
-}
-
-/* Add these new styles */
-@media (max-width: 1024px) {
-  .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-  }
-
-  .navLinks {
-    position: fixed;
-    top: 80px; /* Adjust based on your navbar height */
-    left: 0;
-    right: 0;
-    background: white;
-    padding: 2rem;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out;
-    height: calc(100vh - 80px);
-    overflow-y: auto;
-  }
-
-  .navLinks.active {
-    transform: translateX(0);
-  }
-
-  .navItem {
-    opacity: 0;
-    transform: translateX(-20px);
-    transition: all 0.3s ease-in-out;
-  }
-
-  .navLinks.active .navItem {
-    opacity: 1;
-    transform: translateX(0);
-  }
-
-  .navLinks.active .navItem:nth-child(1) { transition-delay: 0.1s; }
-  .navLinks.active .navItem:nth-child(2) { transition-delay: 0.2s; }
-  .navLinks.active .navItem:nth-child(3) { transition-delay: 0.3s; }
-  .navLinks.active .navItem:nth-child(4) { transition-delay: 0.4s; }
-  .navLinks.active .navItem:nth-child(5) { transition-delay: 0.5s; }
-  .navLinks.active .navItem:nth-child(6) { transition-delay: 0.6s; }
-
-  .navLink {
-    display: block;
-    padding: 1rem;
-    text-align: center;
-    font-size: 1.2rem;
-  }
-
-  .contactBtn {
-    margin-top: 1rem;
-    width: 100%;
-    justify-content: center;
-  }
-}
-
-/* Keep your existing styles and just update/add these new ones */
 
 
 .navbar {
-  background: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s ease-in-out;
+  backdrop-filter: blur(10px);
 }
 
-.scrolled {
-  padding: 0.5rem 0;
-  background: rgba(255, 255, 255, 0.95);
+.navbar.scrolled {
+  background-color: rgba(255, 255, 255);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
-.navbarContainer {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 1.2rem 2rem;
+.navContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.logoWrapper {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+.logo {
+  position: relative;
+  z-index: 2;
   transition: transform 0.3s ease;
 }
 
-.logoWrapper:hover {
-  transform: translateY(-2px);
+.logoImage {
+  width: 150px;
+  height: auto;
 }
 
-.navbarLogo a {
-  text-decoration: none;
+.logo:hover {
+  transform: scale(1.05);
 }
 
-.navbarLogo img {
-  height: 45px;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-}
-
-.logoText {
-  display: flex;
-  flex-direction: column;
-}
-
-.companyName {
-  font-size: 2rem;
-  font-weight: 800;
-  color: #1e293b;
-  letter-spacing: -1px;
-}
-
-.highlight {
-  color: #d45500;
-}
-
-.tagline {
-  font-size: 0.9rem;
-  color: #64748b;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-}
-
-.menuWrapper {
-  display: flex;
-  align-items: center;
-}
-
-.navLinks {
+.navMenu {
   display: flex;
   align-items: center;
   gap: 2.5rem;
@@ -157,162 +51,153 @@
 }
 
 .navItem {
+  margin: 0;
   position: relative;
-  perspective: 1000px;
 }
 
 .navLink {
+  color: #333;
   text-decoration: none;
-  color: #334155;
-  font-weight: 600;
-  font-size: 1.05rem;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
   padding: 0.5rem 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: color 0.3s ease;
-}
-
-.linkText {
   position: relative;
-  z-index: 1;
 }
 
-.linkHighlight {
+.navLink::after {
+  content: "";
   position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 100%;
+  width: 0;
   height: 2px;
-  background: #d45500;
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 0.3s ease;
-}
-
-.navLink:hover .linkHighlight {
-  transform: scaleX(1);
-  transform-origin: left;
+  bottom: 0;
+  left: 0;
+  background-color: var(--primary-color);
+  transition: width 0.3s ease;
 }
 
 .navLink:hover {
-  color: #d45500;
+  color: var(--primary-color);
 }
 
-.contactBtn {
-  background: linear-gradient(135deg, #d45500, #d97706);
-  padding: 0.8rem 1.8rem;
-  border-radius: 50px;
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.25);
-}
-
-.btnIcon {
-  display: flex;
-  align-items: center;
-}
-
-.arrow {
-  width: 18px;
-  height: 18px;
-  fill: currentColor;
-  transition: transform 0.3s ease;
-}
-
-.contactBtn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.35);
-}
-
-.contactBtn:hover .arrow {
-  transform: translateX(4px);
-}
-
-.navbarToggle {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem;
+.navLink:hover::after {
+  width: 100%;
 }
 
 .hamburger {
-  width: 24px;
+  display: none;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.hamburgerIcon {
+  width: 30px;
   height: 20px;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
-.hamburger span {
+.hamburgerIcon span {
   display: block;
+  position: absolute;
+  height: 3px;
   width: 100%;
-  height: 2px;
-  background: #1e293b;
-  border-radius: 2px;
-  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: #333;
+  border-radius: 3px;
+  transition: all 0.3s ease-in-out;
 }
 
-.logoImage {
-  height: 60px;
-  width: auto;
+.hamburgerIcon span:first-child {
+  top: 0;
 }
 
-@media (max-width: 1024px) {
-  .navbar {
-    position: relative;
-  }
-  .navbarToggle {
+.hamburgerIcon span:nth-child(2) {
+  top: 8px;
+}
+
+.hamburgerIcon span:last-child {
+  top: 16px;
+}
+
+/* Hamburger Animation */
+.hamburger.active .hamburgerIcon span:first-child {
+  transform: rotate(45deg);
+  top: 8px;
+}
+
+.hamburger.active .hamburgerIcon span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .hamburgerIcon span:last-child {
+  transform: rotate(-45deg);
+  top: 8px;
+}
+
+@media (max-width: 768px) {
+.navbar {
+  position: relative;
+}
+
+  .hamburger {
     display: block;
   }
 
-  .navLinks {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
+  .navMenu {
+    position: fixed;
+    right: -100%;
+    top: 0;
     width: 100%;
-    background: white;
-    padding: 2rem;
+    height: 100vh;
     flex-direction: column;
-    gap: 1.5rem;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    animation: slideDown 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: rgba(255, 255, 255);
+    padding-top: 120px;
+    transition: 0.4s ease-in-out;
+    gap: 2rem;
   }
 
-  .navLinks.active {
-    display: flex;
+  .navMenu.active {
+    right: 0;
   }
 
-  @keyframes slideDown {
-    from {
-      opacity: 0;
-      transform: translateY(-1rem);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .navbarToggle {
+    display: block;
   }
-
   .navItem {
-    width: 100%;
-    text-align: center;
+    margin: 1rem 0;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .navMenu.active .navItem {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.3s ease-in-out;
   }
 
   .navLink {
-    padding: 1rem;
+    font-size: 1.3rem;
   }
 
-  .contactBtn {
-    width: 100%;
-    justify-content: center;
+  /* Stagger animation for nav items */
+  .navMenu.active .navItem:nth-child(1) {
+    transition-delay: 0.1s;
+  }
+  .navMenu.active .navItem:nth-child(2) {
+    transition-delay: 0.2s;
+  }
+  .navMenu.active .navItem:nth-child(3) {
+    transition-delay: 0.3s;
+  }
+  .navMenu.active .navItem:nth-child(4) {
+    transition-delay: 0.4s;
+  }
+  .navMenu.active .navItem:nth-child(5) {
+    transition-delay: 0.5s;
+  }
+}
+
+@media (max-width: 480px) {
+  .navContainer {
+    padding: 1rem;
   }
 }
