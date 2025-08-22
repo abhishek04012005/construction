@@ -1,23 +1,13 @@
 // src/components/work/Work.tsx
 "use client";
 import { useState } from "react";
-import { StaticImageData } from "next/image";
 import Image from "next/image";
 import styles from "./work.module.css";
 import { workData } from "../../data/workData";
 import Link from "next/link";
 import QuoteModal from "../popup/PopupModal";
 
-interface WorkItem {
-  id: number;
-  title: string;
-  description: string;
-  image: string | StaticImageData;
-  stats: {
-    value: string;
-    label: string;
-  }[];
-}
+
 
 const Work = () => {
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
