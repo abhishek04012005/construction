@@ -1,6 +1,6 @@
 .aboutSection {
   padding: 6rem 2rem;
-  background: #f8fafc;
+  background: var(--background-gradient);
   min-height: 100vh;
 }
 
@@ -187,6 +187,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -197,6 +198,7 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);

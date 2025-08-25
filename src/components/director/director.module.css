@@ -1,7 +1,7 @@
 /* src/components/director/director.module.css */
 .directorSection {
   padding: 5rem 2rem;
-  background-color: #ffffff;
+  background: var(--background-gradient);
 }
 
 .container {

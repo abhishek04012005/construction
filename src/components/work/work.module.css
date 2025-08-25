@@ -1,7 +1,6 @@
-/* src/components/work/work.module.css */
 .workSection {
   padding: 8rem 0;
-  background: linear-gradient(to bottom, #f8fafc, #ffffff);
+  background: var(--background-gradient);
   overflow: hidden;
 }
 
