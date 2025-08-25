@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-// src/components/equipment/Equipment.tsx
 "use client"
 import { useState } from "react";
 import styles from "./equipment.module.css";

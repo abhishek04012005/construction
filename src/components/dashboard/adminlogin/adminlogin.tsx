@@ -1,139 +1,127 @@
 "use client";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import { supabase } from "@/supabase/Supabase";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
-import styles from "./adminlogin.module.css";
-
-interface LoginFormValues {
-  email: string;
-  password: string;
-}
-
-const validationSchema = Yup.object({
-  email: Yup.string()
-    .email("Invalid email address")
-    .required("Email is required"),
-  password: Yup.string()
-    .min(8, "Password must be at least 8 characters")
-    .matches(
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]/,
-      "Password must contain at least one uppercase letter, one lowercase letter, one number and one special character"
-    )
-    .required("Password is required"),
-});
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { supabase } from '../../../supabase/Supabase';
+import styles from './adminlogin.module.css';
+import { toast } from 'react-hot-toast';
+import { FaUser, FaLock, FaEye, FaEyeSlash } from 'react-icons/fa';
+import Image from 'next/image';
+import Logo from '../../../assets/logo.png';
 
 const AdminLogin = () => {
   const router = useRouter();
-  const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
+  const [credentials, setCredentials] = useState({
+    username: '',
+    password: ''
+  });
+  const [isLoading, setIsLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
-  const handleSubmit = async (values: LoginFormValues) => {
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+
     try {
-      setLoading(true);
-      setError(null);
-
-      // First, try to sign in with Supabase Auth
-      const { error: authError } = await supabase.auth.signInWithPassword({
-        email: values.email.trim(),
-        password: values.password,
-      });
-
-
-      if (authError) throw authError;
-
-      // Then verify admin role
-      const { data: adminData, error: adminError } = await supabase
-        .from("admin_users")
-        .select("role")
-        .eq("email", values.email)
+      const { data, error } = await supabase
+        .from('admin_users')
+        .select('*')
+        .eq('username', credentials.username)
+        .eq('password', credentials.password)
         .single();
 
-      if (adminError || adminData?.role !== "admin") {
-        throw new Error("Unauthorized access");
-      }
+      if (error) throw error;
 
-      // Store password hash in admin_users table
-      const { error: updateError } = await supabase
-        .from("admin_users")
-        .update({ password_hash: values.password })
-        .eq("email", values.email);
+      if (data) {
+        document.cookie = 'adminAuth=true; path=/';
+        localStorage.setItem('adminAuth', 'true');
 
-      if (updateError) throw updateError;
-
-      // If everything is successful, redirect to dashboard
-      router.push("/dashboard/contact");
-    } catch (error) {
-      if (error instanceof Error) {
-        setError(error.message);
-        console.error("Login error:", error.message);
+        toast.success('Welcome!');
+        router.push('/admin/dashboard/contact');
+        router.refresh();
       } else {
-        setError("Invalid credentials");
-        console.error("Login error:", error);
+        toast.error('Invalid credentials');
       }
+    } catch (error) {
+      console.error('Login error:', error);
+      toast.error('Login failed. Please try again.');
     } finally {
-      setLoading(false);
+      setIsLoading(false);
     }
   };
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCredentials({
+      ...credentials,
+      [e.target.name]: e.target.value
+    });
+  };
 
   return (
     <div className={styles.loginContainer}>
-      <div className={styles.loginCard}>
+      <div className={styles.loginBox}>
+        <div className={styles.logoContainer}>
+          <Image 
+            src={Logo} 
+            alt="Company Logo" 
+            width={180} 
+            height={60} 
+            className={styles.logo}
+            priority
+          />
+        </div>
+        
         <h1 className={styles.title}>Admin Login</h1>
+        
+        <form onSubmit={handleSubmit} className={styles.loginForm}>
+          <div className={styles.inputGroup}>
+            <FaUser className={styles.inputIcon} />
+            <input
+              type="text"
+              name="username"
+              placeholder="Username"
+              value={credentials.username}
+              onChange={handleChange}
+              required
+              disabled={isLoading}
+              className={styles.input}
+            />
+          </div>
 
-        <Formik
-          initialValues={{ email: "", password: "" }}
-          validationSchema={validationSchema}
-          onSubmit={handleSubmit}
-        >
-          {({ isSubmitting }) => (
-            <Form className={styles.form}>
-              <div className={styles.formGroup}>
-                <label htmlFor="email">Email</label>
-                <Field
-                  type="email"
-                  id="email"
-                  name="email"
-                  className={styles.input}
-                  placeholder="Enter your email"
-                />
-                <ErrorMessage
-                  name="email"
-                  component="div"
-                  className={styles.error}
-                />
-              </div>
+          <div className={styles.inputGroup}>
+            <FaLock className={styles.inputIcon} />
+            <input
+              type={showPassword ? "text" : "password"}
+              name="password"
+              placeholder="Password"
+              value={credentials.password}
+              onChange={handleChange}
+              required
+              disabled={isLoading}
+              className={styles.input}
+            />
+            <button
+              type="button"
+              className={styles.passwordToggle}
+              onClick={() => setShowPassword(!showPassword)}
+              tabIndex={-1}
+              aria-label={showPassword ? "Hide password" : "Show password"}
+            >
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </button>
+          </div>
 
-              <div className={styles.formGroup}>
-                <label htmlFor="password">Password</label>
-                <Field
-                  type="password"
-                  id="password"
-                  name="password"
-                  className={styles.input}
-                  placeholder="Enter your password"
-                />
-                <ErrorMessage
-                  name="password"
-                  component="div"
-                  className={styles.error}
-                />
-              </div>
-
-              {error && <div className={styles.errorMessage}>{error}</div>}
-
-              <button
-                type="submit"
-                className={styles.submitButton}
-                disabled={isSubmitting || loading}
-              >
-                {loading ? "Logging in..." : "Login"}
-              </button>
-            </Form>
-          )}
-        </Formik>
+          <button
+            type="submit"
+            className={styles.loginButton}
+            disabled={isLoading}
+          >
+            {isLoading ? (
+              <span className={styles.loader}></span>
+            ) : (
+              'Login'
+            )}
+          </button>
+        </form>
       </div>
     </div>
   );
