@@ -1,9 +1,7 @@
-// src/components/director/Director.tsx
 import Image, { StaticImageData } from "next/image";
 import styles from "./director.module.css";
 import Director1Image from '../../assets/director/1.jpg'
-import Director2Image from '../../assets/director/2.jpg'
-import Director3Image from '../../assets/director/3.jpg'
+
 
 
 
@@ -29,29 +27,7 @@ const directorData: DirectorItem[] = [
       linkedin: "https://linkedin.com/in/johnsmith",
       email: "ashokkumarsah638@gmail.com",
     },
-  },
-  {
-    title: "Mr. Tarun Roy",
-    role: "Technical Director",
-    description:
-      "Specializing in architectural design and sustainable construction practices.",
-    image: Director2Image,
-    socialLinks: {
-      linkedin: "https://linkedin.com/in/sarahjohnson",
-      email: "sarah@example.com",
-    },
-  },
-  {
-    title: "Mr. Tanishk Singh",
-    role: "Operations Director",
-    description:
-      "Expert in project management and construction operations optimization.",
-    image: Director3Image,
-    socialLinks: {
-      linkedin: "https://linkedin.com/in/michaelchen",
-      email: "michael@example.com",
-    },
-  },
+  }
 ];
 
 const Director = () => {
