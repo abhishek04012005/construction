@@ -34,7 +34,7 @@ const Footer = () => {
         <div className={styles.footerSection}>
           <h4>Contact Info</h4>
           <div className={styles.contactInfo}>
-            <p>Sah Constructions, Devashish Building, Senapati Bapat Marg, Lower Parel, Mumbai, Maharashtra 400013</p>
+            <p>VPO Haripur Sandholi, Baddi Road, Sandholi, Solan, Himachal Pradesh-173205</p>
             <p>Phone: 9882626050, 7018009352</p>
             <p>Email: contact@sahconstructions.com</p>
           </div>
