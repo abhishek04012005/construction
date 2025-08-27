@@ -203,7 +203,19 @@ const Contact = () => {
               </Form>
             </Formik>
           </div>
+          <div className={styles.map}>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3422.4539295243862!2d76.79028892607387!3d30.929884376077002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sVPO%20Haripur%20Sandholi%2C%20Baddi%20Road%2C%20Sandholi%2C%20Solan%2C%20Himachal%20Pradesh-173205!5e0!3m2!1sen!2sin!4v1756292496998!5m2!1sen!2sin"
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
         </div>
+
+
+
+
       </section>
       <StatusPopup
         type="success"
