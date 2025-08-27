@@ -59,7 +59,7 @@ const Footer = () => {
           </a>
         </div>
         <p className={styles.copyright}>
-          © {new Date().getFullYear()} Sah Construction. All rights reserved.
+          © {new Date().getFullYear()} Sah Constructions. All rights reserved.
         </p>
       </div>
     </footer>

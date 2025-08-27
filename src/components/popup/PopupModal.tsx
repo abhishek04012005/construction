@@ -24,15 +24,12 @@ const initialValues: QuoteFormValues = {
 };
 
 const validationSchema = Yup.object({
-  name: Yup.string().required("Name is required"),
   email: Yup.string().email("Invalid email").required("Email is required"),
+  name: Yup.string()
+    .matches(/^[A-Za-z\s]+$/, "Only alphabets and spaces are allowed")
+    .required("Name is required"),
   phone: Yup.string()
-    .matches(
-      /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/,
-      "Please enter a valid phone number"
-    )
-    .min(10, "Phone number must be at least 10 digits")
-    .max(15, "Phone number must not exceed 15 digits")
+    .matches(/^[6-9]\d{9}$/, "Phone number must start with 6, 7, 8 or 9 and be 10 digits")
     .required("Phone number is required"),
   projectType: Yup.string().required("Project type is required"),
   requirements: Yup.string().required("Project requirements are required"),
@@ -104,8 +101,15 @@ const QuoteModal = ({ isOpen, onClose }: QuoteModalProps) => {
                   type="text"
                   id="name"
                   name="name"
-                  placeholder="Your name"
                   className={styles.input}
+                  placeholder="Enter your name"
+                  pattern="[A-Za-z\s]+"
+                  onKeyPress={(e: React.KeyboardEvent) => {
+                    const char = String.fromCharCode(e.charCode);
+                    if (!/[A-Za-z\s]/.test(char)) {
+                      e.preventDefault();
+                    }
+                  }}
                 />
                 <ErrorMessage
                   name="name"
@@ -136,8 +140,25 @@ const QuoteModal = ({ isOpen, onClose }: QuoteModalProps) => {
                   type="tel"
                   id="phone"
                   name="phone"
-                  placeholder="Your phone number"
                   className={styles.input}
+                  placeholder="Enter your mobile number"
+                  maxLength={10}
+                  pattern="[6-9][0-9]{9}"
+                  onKeyPress={(e: React.KeyboardEvent<HTMLInputElement>) => {
+                    const char = String.fromCharCode(e.charCode);
+                    // Check if it's the first digit
+                    if ((e.currentTarget as HTMLInputElement).value.length === 0) {
+                      // Only allow 6-9 for first digit
+                      if (!/[6-9]/.test(char)) {
+                        e.preventDefault();
+                      }
+                    } else {
+                      // Allow any digit for remaining positions
+                      if (!/[0-9]/.test(char)) {
+                        e.preventDefault();
+                      }
+                    }
+                  }}
                 />
                 <ErrorMessage
                   name="phone"
