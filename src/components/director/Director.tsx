@@ -18,14 +18,14 @@ interface DirectorItem {
 
 const directorData: DirectorItem[] = [
   {
-    title: "Mr. Ashok Sah",
-    role: "Managing Director",
+    title: "Mr. Ashok Kumar Sah",
+    role: "Proprietorship",
     description:
-      "With over 20 years of experience in construction management and development.",
+      "With over 8 years of experience in construction management and development.",
     image: Director1Image,
     socialLinks: {
       linkedin: "https://linkedin.com/in/johnsmith",
-      email: "ashokkumarsah638@gmail.com",
+      email: "contact@sahconstructions.com",
     },
   }
 ];
@@ -34,11 +34,11 @@ const Director = () => {
   return (
     <section className={styles.directorSection}>
       <div className={styles.container}>
-         <div className={styles.header}>
+        <div className={styles.header}>
           <h1 className={styles.title}>
             Our <span className={styles.highlight}>Team</span>
           </h1>
-          <p className={styles.subtitle}>Building Excellence Since 2015</p>
+          <p className={styles.subtitle}>Building Excellence Since 2017</p>
           <div className={styles.decorativeLine}></div>
 
         </div>
@@ -51,7 +51,7 @@ const Director = () => {
                   alt={director.title}
                   className={styles.image}
                   width={300}
-                  height={500}
+                  height={500}  
                 />
               </div>
               <div className={styles.content}>

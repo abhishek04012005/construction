@@ -2,9 +2,10 @@
 
 import { StaticImageData } from "next/image";
 import project1Image from '../assets/projects/1.jpg'
-import project2Image from '../assets/projects/2.jpg'
+import project2Image from '../assets/projects/lupin.jpg'
 import project3Image from '../assets/projects/3.jpg'
 import project4Image from '../assets/projects/4.png'
+
 
 
 
@@ -140,7 +141,7 @@ export const projectsData: Project[] = [
       type: "Research",
       industry: "Nanotech Research",
       headquarters: "Bangalore, India",
-      established: "2015",
+      established: "2017",
     },
     highlights: [
       "Cleanroom Environments",
