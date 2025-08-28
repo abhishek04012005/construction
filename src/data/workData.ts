@@ -4,6 +4,7 @@ import work2image from '../assets/work/commercial.png'
 import work3image from '../assets/work/resedential.png'
 import work4image from '../assets/work/Management.png'
 import work5image from '../assets/work/Renovation.png'
+import work6image from "../assets/work/paintingwork.png"
 
 
 
@@ -140,5 +141,30 @@ export const workData: WorkItem[] = [
       "Energy-Efficient Retrofitting",
       "Custom Design Solutions"
     ]
+  },
+  {
+    id: 6,
+    title: "Painting Work",
+    description:
+      "Revitalizing spaces with modern upgrades, structural improvements, and aesthetic enhancements.",
+    fullDescription:
+      "Our renovation and remodeling services breathe new life into outdated or underutilized spaces. Whether it's a residential makeover or a commercial facelift, we focus on functionality, style, and long-term value with minimal disruption.",
+    image: work6image,
+    details: {
+      type: "Renovation",
+      location: "Citywide Projects",
+      year: "2023",
+    },
+    stats: [
+      { value: "150+", label: "Spaces Transformed" },
+      { value: "10+", label: "Years in Renovation" },
+      { value: "97%", label: "Client Retention" },
+    ],
+    highlights: [
+      "Interior & Exterior Upgrades",
+      "Structural Reinforcement",
+      "Energy-Efficient Retrofitting",
+      "Custom Design Solutions",
+    ],
   }
 ];

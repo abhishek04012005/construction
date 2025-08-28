@@ -3,11 +3,11 @@ import equipment1image from "../assets/equipment/mixture-machine.png"
 import equipment2image from "../assets/equipment/shutteringplates.png"
 import equipment3image from "../assets/equipment/Scaffolding.png"
 import equipment4image from "../assets/equipment/compactors.png"
+import equipment5image from "../assets/equipment/jcb.jpg"
 
 
 
 
-// src/data/equipment.ts
 export interface Equipment {
   id: number;
   name: string;
@@ -79,6 +79,23 @@ export const equipmentData: Equipment[] = [
     description:
       "High-performance soil compactor used for ground leveling and surface preparation. Ensures optimal soil density for foundations and roadworks.",
     image: equipment4image,
+    details: {
+      category: "Earth Moving",
+      manufacturer: "JCB",
+      condition: "New",
+    },
+    specifications: [
+      "10-ton operating weight",
+      "Vibratory drum system",
+      "Fuel-efficient diesel engine",
+    ],
+  },
+  {
+    id: 5,
+    name: "JCB",
+   description:
+      "High-performance soil compactor used for ground leveling and surface preparation. Ensures optimal soil density for foundations and roadworks.",
+    image: equipment5image,
     details: {
       category: "Earth Moving",
       manufacturer: "JCB",

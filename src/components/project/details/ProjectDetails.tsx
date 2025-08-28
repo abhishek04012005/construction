@@ -46,7 +46,19 @@ const ProjectDetails = ({ id }: ProjectDetailsProps) => {
                 <span>/</span>
                 <span>{project.title}</span>
               </nav>
-              <h1 className={styles.title}>{project.title}</h1>
+              <div className={styles.projectTitleWrapper}>
+                <div className={styles.titleLogo}>
+                  <Image
+                    src={project.logo}
+                    alt={project.title}
+                    height={40}
+                    width={40}
+                  />
+                </div>
+                <div className={styles.titleText}>
+                  <h3 className={styles.title}>{project.title}</h3>
+                </div>
+              </div>
               <span className={styles.projectType}>{project.details.type}</span>
             </div>
           </div>
