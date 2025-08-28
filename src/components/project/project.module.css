@@ -105,7 +105,7 @@
 .imageOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.6));
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -231,6 +231,34 @@
 .viewProjectBtn:hover .btnArrow {
   transform: translateX(4px);
 }
+
+.projectTitleWrapper {
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  gap: 1rem;
+}
+
+.titleLogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin-top: 0.5rem; */
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 10%;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+}
+
+.projectImage {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
 
 @media (max-width: 1024px) {
   .projectItem {

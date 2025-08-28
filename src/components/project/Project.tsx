@@ -26,17 +26,16 @@ const Projects = () => {
           {projectsData.map((project, index) => (
             <div
               key={project.id}
-              className={`${styles.projectItem} ${
-                index % 2 !== 0 ? styles.reverse : ""
-              }`}
+              className={`${styles.projectItem} ${index % 2 !== 0 ? styles.reverse : ""
+                }`}
             >
               <div className={styles.imageWrapper}>
                 <div className={styles.imageContainer}>
                   <Image
                     src={project.image}
                     alt={project.title}
-                    height={400}
-                    width={500}
+                    className={styles.projectImage}
+                    objectFit="contain"
                   />
                   <div className={styles.imageOverlay}>
                     <div className={styles.overlayContent}>
@@ -50,7 +49,20 @@ const Projects = () => {
 
               <div className={styles.contentWrapper}>
                 <div className={styles.projectType}>{project.details.type}</div>
-                <h3 className={styles.projectTitle}>{project.title}</h3>
+                <div className={styles.projectTitleWrapper}>
+                  <div className={styles.titleLogo}>
+                    <Image
+                      src={project.logo}
+                      alt={project.title}
+                      height={40}
+                      width={40}
+                    />
+                  </div>
+                  <div className={styles.titleText}>
+                    <h3 className={styles.projectTitle}>{project.title}</h3>
+                  </div>
+                  
+                </div>
                 <p className={styles.projectDescription}>
                   {project.description}
                 </p>

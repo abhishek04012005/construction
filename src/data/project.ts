@@ -6,6 +6,11 @@ import project2Image from '../assets/projects/lupin.jpg'
 import project3Image from '../assets/projects/3.jpg'
 import project4Image from '../assets/projects/4.png'
 
+import ProjectImageLogo1 from "../assets/client/alkem.png"
+import ProjectImageLogo2 from "../assets/client/lupin.png"
+import ProjectImageLogo3 from "../assets/client/scorpion.png"
+import ProjectImageLogo4 from "../assets/client/nr-lab.png"
+
 
 
 
@@ -20,6 +25,7 @@ export interface Project {
   title: string;
   description: string;
   image: string | StaticImageData;
+  logo: string | StaticImageData;
   details: {
     type: string;
     industry: string;
@@ -27,21 +33,22 @@ export interface Project {
     established: string;
   };
   highlights: string[];
-   workHistory: {
+  workHistory: {
     year: string;
     location: string;
     description: string;
-}[]
+  }[]
 }
 
 
 export const projectsData: Project[] = [
   {
     id: 1,
-    title: "Alkem Laboratories Limited",
+    title: "Alkem",
     description:
       "A pharmaceutical manufacturing and R&D facility built to meet global standards. Designed for operational efficiency, regulatory compliance, and innovation in healthcare.",
     image: project1Image,
+    logo: ProjectImageLogo1,
     details: {
       type: "Pharmaceutical",
       industry: "Pharmaceuticals",
@@ -79,6 +86,8 @@ export const projectsData: Project[] = [
   {
     id: 2,
     title: "Lupin",
+    logo: ProjectImageLogo2,
+
     description:
       "A cutting-edge pharmaceutical campus featuring research labs, clean rooms, and sustainable production units. Built to support innovation and scalability in drug development.",
     image: project2Image,
@@ -104,6 +113,8 @@ export const projectsData: Project[] = [
   {
     id: 3,
     title: "Scorpion",
+    logo: ProjectImageLogo3,
+
     description:
       "A high-security defense-grade facility designed for precision engineering and tactical research. Combines robust architecture with advanced surveillance and control systems.",
     image: project3Image,
@@ -134,6 +145,8 @@ export const projectsData: Project[] = [
   {
     id: 4,
     title: "NR Lab",
+    logo: ProjectImageLogo4,
+
     description:
       "A next-gen research lab focused on nanotechnology and material sciences. Built with flexible lab modules, collaborative zones, and high-spec equipment integration.",
     image: project4Image,
