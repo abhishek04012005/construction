@@ -19,14 +19,14 @@ const About = () => {
             <h2>Our Story</h2>
             <p>
               Founded in 2017, Sah Constructions has established itself as a leading name in the construction industry.
-              With over 10 years of experience, we&apos;ve successfully delivered countless projects across commercial,
+              With over 8+ years of experience, we&apos;ve successfully delivered countless projects across commercial,
               residential, and industrial sectors, earning a reputation for excellence and reliability.
             </p>
           </div>
 
           <div className={styles.statsGrid}>
             <div className={styles.statCard}>
-              <h3>10+</h3>
+              <h3>8+</h3>
               <p>Years of Excellence</p>
             </div>
             <div className={styles.statCard}>

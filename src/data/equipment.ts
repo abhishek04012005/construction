@@ -93,9 +93,8 @@ export const equipmentData: Equipment[] = [
   {
     id: 5,
     name: "JCB",
-   description:
-      "High-performance soil compactor used for ground leveling and surface preparation. Ensures optimal soil density for foundations and roadworks.",
-    image: equipment5image,
+    description:
+      "JCB's powerful soil preparation solution for efficient ground leveling and surface preparation. Ensures optimal soil density for robust foundations and durable roadworks, delivering reliable results with JCB's renowned quality and durability.", image: equipment5image,
     details: {
       category: "Earth Moving",
       manufacturer: "JCB",

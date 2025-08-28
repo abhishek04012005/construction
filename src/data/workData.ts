@@ -7,7 +7,6 @@ import work5image from '../assets/work/Renovation.png'
 import work6image from "../assets/work/paintingwork.png"
 
 
-
 export interface WorkItem {
   id: number;
   title: string;
@@ -40,7 +39,7 @@ export const workData: WorkItem[] = [
     },
     stats: [
       { value: "120+", label: "Warehouses Built" },
-      { value: "18+", label: "Years in Industrial Construction" },
+      { value: "8+", label: "Years in Industrial Construction" },
       { value: "98%", label: "Client Satisfaction" },
     ],
     highlights: [
@@ -63,7 +62,7 @@ export const workData: WorkItem[] = [
     },
     stats: [
       { value: "200+", label: "Commercial Projects" },
-      { value: "15+", label: "Years in Business" },
+      { value: "8+", label: "Years in Business" },
       { value: "100%", label: "On-Time Delivery" },
     ],
     highlights: [
@@ -86,7 +85,7 @@ export const workData: WorkItem[] = [
     },
     stats: [
       { value: "300+", label: "Homes Delivered" },
-      { value: "20+", label: "Years in Residential Design" },
+      { value: "8+", label: "Years in Residential Design" },
       { value: "95%", label: "Repeat Clients" },
     ],
     highlights: [
@@ -109,7 +108,7 @@ export const workData: WorkItem[] = [
     },
     stats: [
       { value: "500+", label: "Projects Managed" },
-      { value: "25+", label: "Certified PM Experts" },
+      { value: "8+", label: "Certified PM Experts" },
       { value: "99%", label: "Budget Accuracy" },
     ],
     highlights: [
@@ -132,7 +131,7 @@ export const workData: WorkItem[] = [
     },
     stats: [
       { value: "150+", label: "Spaces Transformed" },
-      { value: "10+", label: "Years in Renovation" },
+      { value: "8+", label: "Years in Renovation" },
       { value: "97%", label: "Client Retention" },
     ],
     highlights: [
@@ -157,7 +156,7 @@ export const workData: WorkItem[] = [
     },
     stats: [
       { value: "150+", label: "Spaces Transformed" },
-      { value: "10+", label: "Years in Renovation" },
+      { value: "8+", label: "Years in Renovation" },
       { value: "97%", label: "Client Retention" },
     ],
     highlights: [
