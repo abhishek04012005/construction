@@ -3,8 +3,12 @@ import { projectsData } from '@/data/project';
 import { MetadataRoute } from 'next';
 import { equipmentData } from '@/data/equipment';
 
+// Add these two lines at the top level
+export const dynamic = 'force-static';
+export const revalidate = 3600; // revalidate every hour
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://sahconstructions.com'; // Replace with your domain
+  const baseUrl = 'https://sahconstructions.com';
   const lastModified = new Date().toISOString();
 
   // Static routes
@@ -12,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '',
     '/about',
     '/works',
+    '/equipment',
     '/projects',
     '/contact',
   ].map((route) => ({
@@ -37,7 +42,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-    const equipmentRoutes = equipmentData.map((equipment) => ({
+  const equipmentRoutes = equipmentData.map((equipment) => ({
     url: `${baseUrl}/equipment/${equipment.slug}`,
     lastModified,
     changeFrequency: 'monthly' as const,
