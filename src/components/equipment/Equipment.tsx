@@ -87,7 +87,7 @@ const Equipment = () => {
                     ))}
                   </div>
                   <div className={styles.bothButtons}>
-                    <Link href={`/equipment/${equipment.id}`}>
+                    <Link href={`/equipment/${equipment.slug}`}>
                       <button
                         className={styles.viewDetailsBtn}
                       >

@@ -1,18 +1,23 @@
 "use client";
-import { useState } from "react";
+import { useState, useMemo, FC } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import QuoteModal from "../../../components/popup/PopupModal";
 import styles from "./projectdetails.module.css";
-import { projectsData } from "@/data/project";
+import { projectsData, Project } from "@/data/project";
 
 interface ProjectDetailsProps {
-  id: string;
+  params: {
+    slug: string
+  }
 }
 
-const ProjectDetails = ({ id }: ProjectDetailsProps) => {
+const ProjectDetails: FC<ProjectDetailsProps> = ({ params }) => {
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
-  const project = projectsData.find(p => p.id === Number(id));
+  const project = useMemo<Project | undefined>(
+    () => projectsData.find((p) => p.slug === params.slug),
+    [params.slug]
+  );
 
   if (!project) {
     return (

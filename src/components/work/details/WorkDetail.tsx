@@ -1,30 +1,38 @@
 // src/components/work/details/WorkDetails.tsx
 "use client";
-import { useState } from "react";
+import { useState, useMemo, FC } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { workData } from "@/data/workData";
+import { workData, WorkItem } from "@/data/workData";
 import QuoteModal from "@/components/popup/PopupModal";
 import styles from "./workdetail.module.css";
 
 interface WorkDetailsProps {
-  id: string;
+  params: {
+    slug: string
+  }
 }
-
-const WorkDetails = ({ id }: WorkDetailsProps) => {
+const WorkDetails: FC<WorkDetailsProps> = ({ params }) => {
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
-  const work = workData.find(w => w.id === Number(id));
+  const work = useMemo<WorkItem | undefined>(
+    () => workData.find((s) => s.slug === params.slug),
+    [params.slug]
+  );
 
   if (!work) {
     return (
       <div className={styles.errorContainer}>
         <h1>Work Not Found</h1>
-        <Link href="/work" className={styles.backLink}>
+        <Link href="/works" className={styles.backLink}>
           Return to Work
         </Link>
       </div>
     );
   }
+
+  const currentIndex = workData.findIndex(w => w.slug === params.slug);
+  const prevWork = currentIndex > 0 ? workData[currentIndex - 1] : null;
+  const nextWork = currentIndex < workData.length - 1 ? workData[currentIndex + 1] : null;
 
   return (
     <>
@@ -122,17 +130,17 @@ const WorkDetails = ({ id }: WorkDetailsProps) => {
 
             <nav className={styles.projectNav}>
               <div className={styles.navLinks}>
-                {workData.find(w => w.id === work.id - 1) && (
+                {prevWork && (
                   <Link
-                    href={`/work/${work.id - 1}`}
+                    href={`/works/${prevWork.slug.split('/').pop()}`}
                     className={styles.prevLink}
                   >
                     ← Previous Project
                   </Link>
                 )}
-                {workData.find(w => w.id === work.id + 1) && (
+                {nextWork && (
                   <Link
-                    href={`/work/${work.id + 1}`}
+                    href={`/works/${nextWork.slug.split('/').pop()}`}
                     className={styles.nextLink}
                   >
                     Next Project →

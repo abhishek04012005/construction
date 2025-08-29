@@ -1,16 +1,25 @@
 // src/components/equipment/EquipmentDetails.tsx
 "use client";
+import { useMemo, FC } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./equipmentdetail.module.css";
-import { equipmentData } from "@/data/equipment";
+import { equipmentData, Equipment } from "@/data/equipment";
 
 interface EquipmentDetailsProps {
-  id: string;
+    params: {
+    slug: string
+  }
 }
 
-const EquipmentDetails = ({ id }: EquipmentDetailsProps) => {
-  const equipment = equipmentData.find(e => e.id === Number(id));
+
+const EquipmentDetails: FC<EquipmentDetailsProps> = ({ params }) => {
+  const equipment = useMemo<Equipment | undefined>(
+    () => equipmentData.find((p) => p.slug === params.slug),
+    [params.slug]
+  );
+
+
 
   if (!equipment) {
     return (

@@ -56,7 +56,7 @@ const Work = () => {
 
                   <div className={styles.bothButtons}>
 
-                    <Link href={`/work/${item.id}`}>
+                    <Link href={`/works/${item.slug}`}>
                       <button className={styles.readMoreBtn}>
                         Read More
                         <svg className={styles.arrow} viewBox="0 0 24 24">

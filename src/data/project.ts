@@ -23,6 +23,7 @@ export interface WorkHistory {
 export interface Project {
   id: number;
   title: string;
+  slug: string;
   description: string;
   image: string | StaticImageData;
   logo: string | StaticImageData;
@@ -45,6 +46,7 @@ export const projectsData: Project[] = [
   {
     id: 1,
     title: "Alkem",
+    slug: "alkem",
     description:
       "A pharmaceutical manufacturing and R&D facility built to meet global standards. Designed for operational efficiency, regulatory compliance, and innovation in healthcare.",
     image: project1Image,
@@ -86,6 +88,7 @@ export const projectsData: Project[] = [
   {
     id: 2,
     title: "Lupin",
+    slug: "lupin",
     logo: ProjectImageLogo2,
 
     description:
@@ -113,6 +116,7 @@ export const projectsData: Project[] = [
   {
     id: 3,
     title: "Scorpion",
+    slug: "scorpion",
     logo: ProjectImageLogo3,
 
     description:
@@ -145,6 +149,7 @@ export const projectsData: Project[] = [
   {
     id: 4,
     title: "NR Lab",
+    slug: "nr-lab",
     logo: ProjectImageLogo4,
 
     description:

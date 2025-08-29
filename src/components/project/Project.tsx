@@ -9,7 +9,6 @@ import { projectsData } from "@/data/project";
 
 
 const Projects = () => {
-  const [activeProject, setActiveProject] = useState<number | null>(null);
 
   return (
     <section className={styles.projectSection}>
@@ -97,7 +96,7 @@ const Projects = () => {
                   ))}
                 </div>
 
-                <Link href={`/projects/${project.id}`}>
+                <Link href={`/projects/${project.slug}`}>
                   <button className={styles.viewProjectBtn}>
                     View Project
                     <svg

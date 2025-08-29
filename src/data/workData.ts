@@ -10,6 +10,7 @@ import work6image from "../assets/work/paintingwork.png"
 export interface WorkItem {
   id: number;
   title: string;
+  slug: string;
   description: string;
   image: string | StaticImageData;
   fullDescription?: string;
@@ -29,6 +30,7 @@ export const workData: WorkItem[] = [
   {
     id: 1,
     title: "Warehouse Construction",
+    slug: "warehouse-construction",
     description: "Building high-performance warehouses optimized for logistics, storage, and operational efficiency.",
     fullDescription: "Our warehouse construction services focus on delivering robust, scalable, and energy-efficient facilities tailored to industrial needs. From layout planning to structural execution, we ensure every warehouse maximizes space utilization, safety, and automation readiness.",
     image: work1image,
@@ -52,6 +54,7 @@ export const workData: WorkItem[] = [
   {
     id: 2,
     title: "Commercial Construction",
+    slug: "commercial-construction",
     description: "Designing and constructing commercial spaces that elevate business functionality and brand presence.",
     fullDescription: "We specialize in commercial construction that blends architectural elegance with operational practicality. Whether it's retail outlets, office complexes, or mixed-use developments, our team ensures every project meets modern standards of safety, accessibility, and sustainability.",
     image: work2image,
@@ -75,6 +78,7 @@ export const workData: WorkItem[] = [
   {
     id: 3,
     title: "Residential Construction",
+    slug: "residential-construction",
     description: "Crafting homes that blend comfort, style, and sustainability for modern living.",
     fullDescription: "Our residential construction services focus on creating homes that reflect personal taste while ensuring structural integrity and energy efficiency. From luxury villas to affordable housing, we deliver spaces that feel like home from day one.",
     image: work3image,
@@ -98,6 +102,7 @@ export const workData: WorkItem[] = [
   {
     id: 4,
     title: "Project Management",
+    slug: "project-management",
     description: "End-to-end construction project management ensuring timely delivery and budget control.",
     fullDescription: "We offer comprehensive project management services that cover planning, execution, and post-construction support. Our experienced managers coordinate teams, monitor progress, and mitigate risks to ensure every project meets its goals efficiently.",
     image: work4image,
@@ -121,6 +126,7 @@ export const workData: WorkItem[] = [
   {
     id: 5,
     title: "Renovation & Remodeling",
+    slug: "renovation-remodeling",
     description: "Revitalizing spaces with modern upgrades, structural improvements, and aesthetic enhancements.",
     fullDescription: "Our renovation and remodeling services breathe new life into outdated or underutilized spaces. Whether it's a residential makeover or a commercial facelift, we focus on functionality, style, and long-term value with minimal disruption.",
     image: work5image,
@@ -144,6 +150,7 @@ export const workData: WorkItem[] = [
   {
     id: 6,
     title: "Painting Work",
+    slug: "painting-work",
     description:
       "Revitalizing spaces with modern upgrades, structural improvements, and aesthetic enhancements.",
     fullDescription:
