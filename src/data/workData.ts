@@ -38,8 +38,8 @@ export const workData: WorkItem[] = [
       year: "2023"
     },
     stats: [
-      { value: "120+", label: "Warehouses Built" },
-      { value: "8+", label: "Years in Industrial Construction" },
+      { value: "30+", label: "Warehouses Built" },
+      { value: "13+", label: "Years in Industrial Construction" },
       { value: "98%", label: "Client Satisfaction" },
     ],
     highlights: [
@@ -61,8 +61,8 @@ export const workData: WorkItem[] = [
       year: "2023"
     },
     stats: [
-      { value: "200+", label: "Commercial Projects" },
-      { value: "8+", label: "Years in Business" },
+      { value: "20+", label: "Commercial Projects" },
+      { value: "13+", label: "Years in Business" },
       { value: "100%", label: "On-Time Delivery" },
     ],
     highlights: [
@@ -84,8 +84,8 @@ export const workData: WorkItem[] = [
       year: "2023"
     },
     stats: [
-      { value: "300+", label: "Homes Delivered" },
-      { value: "8+", label: "Years in Residential Design" },
+      { value: "15+", label: "Homes Delivered" },
+      { value: "13+", label: "Years in Residential Design" },
       { value: "95%", label: "Repeat Clients" },
     ],
     highlights: [
@@ -107,8 +107,8 @@ export const workData: WorkItem[] = [
       year: "2023"
     },
     stats: [
-      { value: "500+", label: "Projects Managed" },
-      { value: "8+", label: "Certified PM Experts" },
+      { value: "11+", label: "Projects Managed" },
+      { value: "13+", label: "Certified PM Experts" },
       { value: "99%", label: "Budget Accuracy" },
     ],
     highlights: [
@@ -130,8 +130,8 @@ export const workData: WorkItem[] = [
       year: "2023"
     },
     stats: [
-      { value: "150+", label: "Spaces Transformed" },
-      { value: "8+", label: "Years in Renovation" },
+      { value: "34+", label: "Spaces Transformed" },
+      { value: "13+", label: "Years in Renovation" },
       { value: "97%", label: "Client Retention" },
     ],
     highlights: [
@@ -155,8 +155,8 @@ export const workData: WorkItem[] = [
       year: "2023",
     },
     stats: [
-      { value: "150+", label: "Spaces Transformed" },
-      { value: "8+", label: "Years in Renovation" },
+      { value: "34+", label: "Spaces Transformed" },
+      { value: "13+", label: "Years in Renovation" },
       { value: "97%", label: "Client Retention" },
     ],
     highlights: [

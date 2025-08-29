@@ -21,7 +21,7 @@ const directorData: DirectorItem[] = [
     title: "Mr. Ashok Kumar Sah",
     role: "Proprietorship",
     description:
-      "With over 8+ years of experience in construction management and development.",
+      "With over 13+ years of experience in construction management and development.",
     image: Director1Image,
     socialLinks: {
       linkedin: "https://linkedin.com/in/johnsmith",
@@ -38,7 +38,7 @@ const Director = () => {
           <h1 className={styles.title}>
             Our <span className={styles.highlight}>Team</span>
           </h1>
-          <p className={styles.subtitle}>Building Excellence Since 2017</p>
+          <p className={styles.subtitle}>Building Excellence Since 2012</p>
           <div className={styles.decorativeLine}></div>
 
         </div>

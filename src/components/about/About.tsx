@@ -9,7 +9,7 @@ const About = () => {
           <h1 className={styles.title}>
             About <span className={styles.highlight}>Sah Constructions</span>
           </h1>
-          <p className={styles.subtitle}>Building Excellence Since 2017</p>
+          <p className={styles.subtitle}>Building Excellence Since 2012</p>
           <div className={styles.decorativeLine}></div>
 
         </div>
@@ -18,19 +18,19 @@ const About = () => {
           <div className={styles.storySection}>
             <h2>Our Story</h2>
             <p>
-              Founded in 2017, Sah Constructions has established itself as a leading name in the construction industry.
-              With over 8+ years of experience, we&apos;ve successfully delivered countless projects across commercial,
+              Founded in 2012, Sah Constructions has established itself as a leading name in the construction industry.
+              With over 13+ years of experience, we&apos;ve successfully delivered countless projects across commercial,
               residential, and industrial sectors, earning a reputation for excellence and reliability.
             </p>
           </div>
 
           <div className={styles.statsGrid}>
             <div className={styles.statCard}>
-              <h3>8+</h3>
+              <h3>13+</h3>
               <p>Years of Excellence</p>
             </div>
             <div className={styles.statCard}>
-              <h3>500+</h3>
+              <h3>150+</h3>
               <p>Projects Completed</p>
             </div>
             <div className={styles.statCard}>
