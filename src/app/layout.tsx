@@ -3,6 +3,7 @@ import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer";
 import { Toaster } from "react-hot-toast";
 import { Metadata } from "next";
+import OGImage from "../../public/logo.png"
 
 export const metadata: Metadata = {
   title: "Sah Constructions | Leading Construction Company in India",
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
     siteName: "Sah Construction",
     images: [
       {
-        url: "../public/logo.svg",
+        url: OGImage.src,
         width: 1200,
         height: 630,
         alt: "Sah Construction Projects",
@@ -46,7 +47,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Sah Construction | Leading Construction Company",
     description: "Expert construction services and project management solutions across India.",
-    images: ["/images/twitter-image.jpg"],
+    images: OGImage.src,
   },
   viewport: {
     width: "device-width",
