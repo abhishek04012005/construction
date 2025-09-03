@@ -21,7 +21,7 @@ const Hero = () => {
             Quality craftsmanship, innovative solutions, and reliable execution.
           </p>
           <div className={styles.ctaGroup}>
-            <button className={styles.primaryBtn} onClick={() => router.push('/projects ')}>
+            <button className={styles.primaryBtn} onClick={() => router.push('/projects')}>
               Start Your Project
               <svg className={styles.arrow} viewBox="0 0 24 24">
                 <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" />

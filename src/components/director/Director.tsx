@@ -1,6 +1,6 @@
 import Image, { StaticImageData } from "next/image";
 import styles from "./director.module.css";
-import Director1Image from '../../assets/director/1.jpg'
+import Director1Image from '../../assets/director/director1.jpeg'
 
 
 
