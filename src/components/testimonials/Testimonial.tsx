@@ -6,21 +6,19 @@ import { FaQuoteLeft, FaStar, FaChevronLeft, FaChevronRight } from 'react-icons/
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
 import type { Swiper as SwiperType } from 'swiper';
-import Client1 from '../../assets/testimonial/1.jpg'
-import Client2 from '../../assets/testimonial/2.jpg';
-import Client3 from '../../assets/testimonial/3.jpg';
-import Client4 from '../../assets/testimonial/4.jpg';
+
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
+import imageLoader from '../../../image-loader';
 
 const testimonials = [
     {
         id: 1,
         name: 'S. Tiwari',
         position: 'Business Owner',
-        image: Client2,
+        image: "./testimonial/1.jpg",
         quote: 'Sharma Interiors transformed our office space into a modern, functional environment. Their attention to detail and professionalism exceeded our expectations.',
         rating: 5
     },
@@ -28,7 +26,7 @@ const testimonials = [
         id: 2,
         name: 'R.K. Singh',
         position: 'Restaurant Manager',
-        image: Client1,
+        image: "./testimonial/2.jpg",
         quote: 'The wooden work and partitions they installed are simply outstanding. The team was efficient, and the results were exactly what we envisioned.',
         rating: 5
     },
@@ -36,7 +34,7 @@ const testimonials = [
         id: 3,
         name: 'A. Patel',
         position: 'Hotel Director',
-        image: Client3,
+        image: "./testimonial/3.jpg",
         quote: 'Their expertise in ceiling work and paneling is remarkable. They delivered the project on time and maintained high quality throughout.',
         rating: 5
     },
@@ -44,7 +42,7 @@ const testimonials = [
         id: 4,
         name: 'J. Sharma',
         position: 'Interior Designer',
-        image: Client4,
+        image: "./testimonial/4.jpg",
         quote: 'Sharma Interiors has an incredible eye for design. They helped us create a cohesive look throughout our office that truly reflects our brand.',
         rating: 5
     }
@@ -124,6 +122,7 @@ const Testimonial = () => {
                                     <div className={styles.clientInfo}>
                                         <div className={styles.clientImage}>
                                             <Image
+                                                loader={imageLoader}
                                                 src={testimonial.image}
                                                 alt={testimonial.name}
                                                 width={60}
