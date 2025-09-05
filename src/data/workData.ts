@@ -1,10 +1,4 @@
 import { StaticImageData } from 'next/image';
-import work1image from '../assets/work/warehouse.png'
-import work2image from '../assets/work/commercial.png'
-import work3image from '../assets/work/resedential.png'
-import work4image from '../assets/work/Management.png'
-import work5image from '../assets/work/Renovation.png'
-import work6image from "../assets/work/paintingwork.png"
 
 
 export interface WorkItem {
@@ -33,7 +27,7 @@ export const workData: WorkItem[] = [
     slug: "warehouse-construction",
     description: "Building high-performance warehouses optimized for logistics, storage, and operational efficiency.",
     fullDescription: "Our warehouse construction services focus on delivering robust, scalable, and energy-efficient facilities tailored to industrial needs. From layout planning to structural execution, we ensure every warehouse maximizes space utilization, safety, and automation readiness.",
-    image: work1image,
+    image: "./work/warehouse.png",
     details: {
       type: "Industrial",
       location: "Metro Industrial Park",
@@ -57,7 +51,7 @@ export const workData: WorkItem[] = [
     slug: "commercial-construction",
     description: "Designing and constructing commercial spaces that elevate business functionality and brand presence.",
     fullDescription: "We specialize in commercial construction that blends architectural elegance with operational practicality. Whether it's retail outlets, office complexes, or mixed-use developments, our team ensures every project meets modern standards of safety, accessibility, and sustainability.",
-    image: work2image,
+    image: "./work/commercial.png",
     details: {
       type: "Commercial",
       location: "Urban District",
@@ -81,7 +75,7 @@ export const workData: WorkItem[] = [
     slug: "residential-construction",
     description: "Crafting homes that blend comfort, style, and sustainability for modern living.",
     fullDescription: "Our residential construction services focus on creating homes that reflect personal taste while ensuring structural integrity and energy efficiency. From luxury villas to affordable housing, we deliver spaces that feel like home from day one.",
-    image: work3image,
+    image: "./work/resedential.png",
     details: {
       type: "Residential",
       location: "Greenfield Township",
@@ -105,7 +99,7 @@ export const workData: WorkItem[] = [
     slug: "project-management",
     description: "End-to-end construction project management ensuring timely delivery and budget control.",
     fullDescription: "We offer comprehensive project management services that cover planning, execution, and post-construction support. Our experienced managers coordinate teams, monitor progress, and mitigate risks to ensure every project meets its goals efficiently.",
-    image: work4image,
+    image: "./work/Management.png",
     details: {
       type: "Service",
       location: "Pan-India Operations",
@@ -129,7 +123,7 @@ export const workData: WorkItem[] = [
     slug: "renovation-remodeling",
     description: "Revitalizing spaces with modern upgrades, structural improvements, and aesthetic enhancements.",
     fullDescription: "Our renovation and remodeling services breathe new life into outdated or underutilized spaces. Whether it's a residential makeover or a commercial facelift, we focus on functionality, style, and long-term value with minimal disruption.",
-    image: work5image,
+    image: "./work/Renovation.png",
     details: {
       type: "Renovation",
       location: "Citywide Projects",
@@ -155,7 +149,7 @@ export const workData: WorkItem[] = [
       "Revitalizing spaces with modern upgrades, structural improvements, and aesthetic enhancements.",
     fullDescription:
       "Our renovation and remodeling services breathe new life into outdated or underutilized spaces. Whether it's a residential makeover or a commercial facelift, we focus on functionality, style, and long-term value with minimal disruption.",
-    image: work6image,
+    image: "./work/paintingwork.png",
     details: {
       type: "Renovation",
       location: "Citywide Projects",

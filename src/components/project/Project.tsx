@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 // src/components/projects/Projects.tsx
 "use client";
-import { useState } from "react";
 import Image from "next/image";
 import styles from "./project.module.css";
 import Link from 'next/link';
 import { projectsData } from "@/data/project";
+import imageLoader from "../../../image-loader";
 
 
 const Projects = () => {
@@ -31,10 +31,13 @@ const Projects = () => {
               <div className={styles.imageWrapper}>
                 <div className={styles.imageContainer}>
                   <Image
+                    loader={imageLoader}
                     src={project.image}
                     alt={project.title}
                     className={styles.projectImage}
                     objectFit="contain"
+                    width={1920}
+                    height={1080}
                   />
                   <div className={styles.imageOverlay}>
                     <div className={styles.overlayContent}>
@@ -51,6 +54,7 @@ const Projects = () => {
                 <div className={styles.projectTitleWrapper}>
                   <div className={styles.titleLogo}>
                     <Image
+                      loader={imageLoader}
                       src={project.logo}
                       alt={project.title}
                       height={40}
@@ -60,7 +64,7 @@ const Projects = () => {
                   <div className={styles.titleText}>
                     <h3 className={styles.projectTitle}>{project.title}</h3>
                   </div>
-                  
+
                 </div>
                 <p className={styles.projectDescription}>
                   {project.description}

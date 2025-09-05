@@ -5,9 +5,10 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./equipmentdetail.module.css";
 import { equipmentData, Equipment } from "@/data/equipment";
+import imageLoader from "../../../../image-loader";
 
 interface EquipmentDetailsProps {
-    params: {
+  params: {
     slug: string
   }
 }
@@ -36,6 +37,7 @@ const EquipmentDetails: FC<EquipmentDetailsProps> = ({ params }) => {
     <article className={styles.equipmentDetails}>
       <div className={styles.hero}>
         <Image
+          loader={imageLoader}
           src={equipment.image}
           alt={equipment.name}
           fill

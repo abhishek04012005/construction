@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import { FaBars, FaTimes, FaSignOutAlt, FaEnvelope, FaProjectDiagram } from 'react-icons/fa';
 import styles from './AdminNavbar.module.css';
-import Logo from '../../../assets/logo.png';
+import imageLoader from '../../../../image-loader';
 
 const AdminNavbar = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -48,7 +48,8 @@ const AdminNavbar = () => {
                 <div className={styles.navHeader}>
                     <Link href="/" className={styles.logoLink}>
                         <Image
-                            src={Logo}
+                            loader={imageLoader}
+                            src="./logo.png"
                             alt="Logo"
                             width={140}
                             height={45}

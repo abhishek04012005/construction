@@ -6,7 +6,7 @@ import styles from './adminlogin.module.css';
 import { toast } from 'react-hot-toast';
 import { FaUser, FaLock, FaEye, FaEyeSlash } from 'react-icons/fa';
 import Image from 'next/image';
-import Logo from '../../../assets/logo.png';
+import imageLoader from '../../../../image-loader';
 
 const AdminLogin = () => {
   const router = useRouter();
@@ -60,18 +60,19 @@ const AdminLogin = () => {
     <div className={styles.loginContainer}>
       <div className={styles.loginBox}>
         <div className={styles.logoContainer}>
-          <Image 
-            src={Logo} 
-            alt="Company Logo" 
-            width={180} 
-            height={60} 
+          <Image
+            loader={imageLoader}
+            src='./logo.png'
+            alt="Company Logo"
+            width={180}
+            height={60}
             className={styles.logo}
             priority
           />
         </div>
-        
+
         <h1 className={styles.title}>Admin Login</h1>
-        
+
         <form onSubmit={handleSubmit} className={styles.loginForm}>
           <div className={styles.inputGroup}>
             <FaUser className={styles.inputIcon} />

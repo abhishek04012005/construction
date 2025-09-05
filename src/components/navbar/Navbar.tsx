@@ -3,7 +3,8 @@ import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import styles from './navbar.module.css';
 import Image from 'next/image';
-import Logo from '../../assets/logo.png';
+import imageLoader from '../../../image-loader';
+
 
 interface NavItem {
   id: number;
@@ -51,8 +52,9 @@ const Navbar = () => {
       <div className={styles.navContainer}>
         <Link href="/" className={styles.logo}>
           <Image
+            loader={imageLoader}
             className={styles.logoImage}
-            src={Logo}
+            src="./logo.png"
             alt="Sharma Interiors"
             width={150}
             height={50}

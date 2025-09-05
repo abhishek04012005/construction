@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { equipmentData } from "@/data/equipment";
 import QuoteModal from "../popup/PopupModal";
+import imageLoader from "../../../image-loader";
 
 
 const Equipment = () => {
@@ -33,6 +34,7 @@ const Equipment = () => {
                 <div className={styles.imageWrapper}>
                   <div className={styles.imageContainer}>
                     <Image
+                      loader={imageLoader}
                       src={equipment.image}
                       alt={equipment.name}
                       height={400}

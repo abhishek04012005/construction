@@ -1,4 +1,3 @@
-// src/components/work/Work.tsx
 "use client";
 import { useState } from "react";
 import Image from "next/image";
@@ -6,7 +5,7 @@ import styles from "./work.module.css";
 import { workData } from "../../data/workData";
 import Link from "next/link";
 import QuoteModal from "../popup/PopupModal";
-
+import imageLoader from "../../../image-loader";
 
 
 const Work = () => {
@@ -21,7 +20,7 @@ const Work = () => {
               Our <span className={styles.highlight}>Work</span>
             </h2>
             <p className={styles.subtitle}>Excellence in Every Project</p>
-          <div className={styles.decorativeLine}></div>
+            <div className={styles.decorativeLine}></div>
           </div>
 
           <div className={styles.workGrid}>
@@ -33,6 +32,7 @@ const Work = () => {
               >
                 <div className={styles.imageContainer}>
                   <Image
+                    loader={imageLoader}
                     src={item.image}
                     alt={item.title}
                     width={400}

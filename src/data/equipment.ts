@@ -1,11 +1,4 @@
 import { StaticImageData } from "next/image";
-import equipment1image from "../assets/equipment/mixture-machine.png"
-import equipment2image from "../assets/equipment/shutteringplates.png"
-import equipment3image from "../assets/equipment/Scaffolding.png"
-import equipment4image from "../assets/equipment/compactors.png"
-import equipment5image from "../assets/equipment/jcb.jpg"
-
-
 
 
 export interface Equipment {
@@ -29,7 +22,7 @@ export const equipmentData: Equipment[] = [
     slug: "mixture-machine",
     description:
       "Heavy-duty concrete mixture machine designed for consistent blending of cement, sand, and aggregates. Ideal for both small and large-scale construction sites.",
-    image: equipment1image,
+    image: "./equipment/mixture-machine.png",
     details: {
       category: "Concrete Equipment",
       manufacturer: "Universal",
@@ -47,7 +40,7 @@ export const equipmentData: Equipment[] = [
     slug: "shuttering-plates",
     description:
       "Durable shuttering plates used for forming concrete structures. Engineered for high load-bearing capacity and reusability across multiple construction cycles.",
-    image: equipment2image,
+    image: "./equipment/shutteringplates.png",
     details: {
       category: "Formwork",
       manufacturer: "Apollo Formtech",
@@ -65,7 +58,7 @@ export const equipmentData: Equipment[] = [
     slug: "scaffolding",
     description:
       "Modular scaffolding system for safe and efficient access during construction, maintenance, and repair work. Designed for quick assembly and maximum stability.",
-    image: equipment3image,
+    image: "./equipment/Scaffolding.png",
     details: {
       category: "Access Equipment",
       manufacturer: "Tata Structura",
@@ -83,7 +76,7 @@ export const equipmentData: Equipment[] = [
     slug: "compactors",
     description:
       "High-performance soil compactor used for ground leveling and surface preparation. Ensures optimal soil density for foundations and roadworks.",
-    image: equipment4image,
+    image: "./equipment/compactors.png",
     details: {
       category: "Earth Moving",
       manufacturer: "JCB",
@@ -100,7 +93,8 @@ export const equipmentData: Equipment[] = [
     name: "JCB",
     slug: "jcb",
     description:
-      "JCB's powerful soil preparation solution for efficient ground leveling and surface preparation. Ensures optimal soil density for robust foundations and durable roadworks, delivering reliable results with JCB's renowned quality and durability.", image: equipment5image,
+      "JCB's powerful soil preparation solution for efficient ground leveling and surface preparation. Ensures optimal soil density for robust foundations and durable roadworks, delivering reliable results with JCB's renowned quality and durability.",
+    image: "./equipment/jcb.jpg",
     details: {
       category: "Earth Moving",
       manufacturer: "JCB",

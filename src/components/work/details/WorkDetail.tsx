@@ -1,4 +1,3 @@
-// src/components/work/details/WorkDetails.tsx
 "use client";
 import { useState, useMemo, FC } from "react";
 import Image from "next/image";
@@ -6,6 +5,7 @@ import Link from "next/link";
 import { workData, WorkItem } from "@/data/workData";
 import QuoteModal from "@/components/popup/PopupModal";
 import styles from "./workdetail.module.css";
+import imageLoader from "../../../../image-loader";
 
 interface WorkDetailsProps {
   params: {
@@ -39,10 +39,12 @@ const WorkDetails: FC<WorkDetailsProps> = ({ params }) => {
       <article className={styles.projectDetails}>
         <div className={styles.hero}>
           <Image
+            loader={imageLoader}
             src={work.image}
             alt={work.title}
-            fill
             priority
+            height={1080}
+            width={1920}
             sizes="100vw"
             className={styles.heroImage}
           />

@@ -1,8 +1,8 @@
-
+"use client";
 import Link from 'next/link';
 import styles from './footer.module.css';
 import Image from 'next/image';
-import Logo from '../../assets/logo.svg';
+import imageLoader from '../../../image-loader';
 
 const Footer = () => {
 
@@ -11,7 +11,7 @@ const Footer = () => {
       <div className={styles.footerContent}>
         <div className={styles.footerSection}>
           <div className={styles.logoWrapper}>
-            <Image className={styles.logoImage} src={Logo} alt="Logo" height={60} width={60} />
+            <Image loader={imageLoader} className={styles.logoImage} src="./logo.svg" alt="Logo" height={60} width={60} />
           </div>
           <p className={styles.companyDesc}>
             Leading the way in innovative construction and architectural solutions,
@@ -60,6 +60,9 @@ const Footer = () => {
         </div>
         <p className={styles.copyright}>
           © {new Date().getFullYear()} Sah Constructions. All rights reserved.
+        </p>
+        <p className={styles.copyright}>
+          Powered By <a href="https://www.anksquare.com" target="_blank" rel="noopener noreferrer">Anksquare</a>
         </p>
       </div>
     </footer>

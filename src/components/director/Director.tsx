@@ -1,6 +1,7 @@
+"use client";
 import Image, { StaticImageData } from "next/image";
 import styles from "./director.module.css";
-import Director1Image from '../../assets/director/director1.jpeg'
+import imageLoader from "../../../image-loader";
 
 
 
@@ -22,7 +23,7 @@ const directorData: DirectorItem[] = [
     role: "Proprietorship",
     description:
       "With over 13+ years of experience in construction management and development.",
-    image: Director1Image,
+    image: "./director/director1.jpeg",
     socialLinks: {
       linkedin: "https://linkedin.com/in/johnsmith",
       email: "contact@sahconstructions.com",
@@ -47,11 +48,12 @@ const Director = () => {
             <div key={index} className={styles.card}>
               <div className={styles.imageWrapper}>
                 <Image
+                  loader={imageLoader}
                   src={director.image}
                   alt={director.title}
                   className={styles.image}
                   width={300}
-                  height={500}  
+                  height={500}
                 />
               </div>
               <div className={styles.content}>

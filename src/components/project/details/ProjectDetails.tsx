@@ -5,6 +5,7 @@ import Link from "next/link";
 import QuoteModal from "../../../components/popup/PopupModal";
 import styles from "./projectdetails.module.css";
 import { projectsData, Project } from "@/data/project";
+import imageLoader from "../../../../image-loader";
 
 interface ProjectDetailsProps {
   params: {
@@ -35,12 +36,14 @@ const ProjectDetails: FC<ProjectDetailsProps> = ({ params }) => {
       <article className={styles.projectDetails}>
         <div className={styles.hero}>
           <Image
+            loader={imageLoader}
             src={project.image}
             alt={project.title}
-            fill
             priority
             sizes="100vw"
             className={styles.heroImage}
+            width={1920}
+            height={1080}
           />
           <div className={styles.heroOverlay}>
             <div className={styles.container}>
@@ -54,6 +57,7 @@ const ProjectDetails: FC<ProjectDetailsProps> = ({ params }) => {
               <div className={styles.projectTitleWrapper}>
                 <div className={styles.titleLogo}>
                   <Image
+                    loader={imageLoader}
                     src={project.logo}
                     alt={project.title}
                     height={40}

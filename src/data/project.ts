@@ -1,18 +1,4 @@
-// src/data/projectsData.ts
-
 import { StaticImageData } from "next/image";
-import project1Image from '../assets/projects/1.jpg'
-import project2Image from '../assets/projects/lupin.jpg'
-import project3Image from '../assets/projects/3.jpg'
-import project4Image from '../assets/projects/4.png'
-
-import ProjectImageLogo1 from "../assets/client/alkem.png"
-import ProjectImageLogo2 from "../assets/client/lupin.png"
-import ProjectImageLogo3 from "../assets/client/scorpion.png"
-import ProjectImageLogo4 from "../assets/client/nr-lab.png"
-
-
-
 
 export interface WorkHistory {
   year: string;
@@ -49,8 +35,8 @@ export const projectsData: Project[] = [
     slug: "alkem",
     description:
       "A pharmaceutical manufacturing and R&D facility built to meet global standards. Designed for operational efficiency, regulatory compliance, and innovation in healthcare.",
-    image: project1Image,
-    logo: ProjectImageLogo1,
+    image: "./projects/1.jpg",
+    logo: "./client/alkem.png",
     details: {
       type: "Pharmaceutical",
       industry: "Pharmaceuticals",
@@ -89,11 +75,11 @@ export const projectsData: Project[] = [
     id: 2,
     title: "Lupin",
     slug: "lupin",
-    logo: ProjectImageLogo2,
+    logo: "./client/lupin.png",
 
     description:
       "A cutting-edge pharmaceutical campus featuring research labs, clean rooms, and sustainable production units. Built to support innovation and scalability in drug development.",
-    image: project2Image,
+    image: "./projects/lupin.jpg",
     details: {
       type: "Pharmaceutical",
       industry: "Pharmaceuticals & Biotech",
@@ -117,11 +103,11 @@ export const projectsData: Project[] = [
     id: 3,
     title: "Scorpion",
     slug: "scorpion",
-    logo: ProjectImageLogo3,
+    logo: "./client/scorpion.png",
 
     description:
       "A high-security defense-grade facility designed for precision engineering and tactical research. Combines robust architecture with advanced surveillance and control systems.",
-    image: project3Image,
+    image: "./projects/3.jpg",
     details: {
       type: "Defense",
       industry: "Defense Technology",
@@ -150,11 +136,11 @@ export const projectsData: Project[] = [
     id: 4,
     title: "NR Lab",
     slug: "nr-lab",
-    logo: ProjectImageLogo4,
+    logo: "./client/nr-lab.png",
 
     description:
       "A next-gen research lab focused on nanotechnology and material sciences. Built with flexible lab modules, collaborative zones, and high-spec equipment integration.",
-    image: project4Image,
+    image: "./projects/4.png",
     details: {
       type: "Research",
       industry: "Nanotech Research",

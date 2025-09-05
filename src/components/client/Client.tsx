@@ -3,13 +3,10 @@ import React, { useRef } from 'react';
 import Image from 'next/image';
 import styles from './client.module.css';
 import { FaQuoteRight, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import ClientLogo1 from '../../assets/client/alkem.png'
-import ClientLogo2 from '../../assets/client/lupin.png';
-import ClientLogo3 from '../../assets/client/scorpion.png';
-import ClientLogo4 from '../../assets/client/nr-lab.png';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
 import type { Swiper as SwiperType } from 'swiper';
+import imageLoader from "../../../image-loader"
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -18,7 +15,7 @@ const clients = [
   {
     id: 1,
     name: 'Alkem',
-    logo: ClientLogo1,
+    logo: './client/alkem.png',
     project: 'Pharmaceutical Manufacturing Unit',
     testimonial:
       'Their expertise in pharma-grade construction was evident throughout. The facility meets all regulatory standards and supports seamless operations.',
@@ -26,7 +23,7 @@ const clients = [
   {
     id: 2,
     name: 'Lupin',
-    logo: ClientLogo2,
+    logo: './client/lupin.png',
     project: 'Research & Development Campus',
     testimonial:
       'From lab design to energy efficiency, every detail was handled with precision. The campus fosters innovation and collaboration effortlessly.',
@@ -34,7 +31,7 @@ const clients = [
   {
     id: 3,
     name: 'Scorpion',
-    logo: ClientLogo3,
+    logo: './client/scorpion.png',
     project: 'Defense Technology Facility',
     testimonial:
       'They delivered a secure, high-performance facility tailored to our strategic needs. Exceptional attention to detail and confidentiality.',
@@ -42,7 +39,7 @@ const clients = [
   {
     id: 4,
     name: 'NR Lab',
-    logo: ClientLogo4,
+    logo: './client/nr-lab.png',
     project: 'Advanced Nanotech Lab',
     testimonial:
       'The modular lab design and cleanroom integration exceeded expectations. A future-ready space that empowers cutting-edge research.',
@@ -112,6 +109,7 @@ const OurClients = () => {
                 <div className={styles.clientCard}>
                   <div className={styles.logoContainer}>
                     <Image
+                      loader={imageLoader}
                       src={client.logo}
                       alt={client.name}
                       width={120}
